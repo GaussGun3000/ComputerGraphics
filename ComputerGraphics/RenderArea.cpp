@@ -1,10 +1,21 @@
 #include "RenderArea.h"
 
+
+
+
 RenderArea::RenderArea(QWidget *parent)
 {
 
 }
 
+
+void RenderArea::paintEvent(QPaintEvent* event)
+{
+	QPainter painter(this);
+	QPoint offset = getOffset();
+	painter.drawLines(getRectLines(QPointF(-10 + offset.x(), 10 + offset.y()), QPointF(20 + offset.x(), 10 + offset.y()),
+		QPointF(20 + offset.x(), -10 + offset.y()), QPointF(-10 + offset.x(), -10 + offset.y())));
+}
 
 QPoint RenderArea::getOffset()
 /**
@@ -12,4 +23,14 @@ QPoint RenderArea::getOffset()
 */
 {
 	return QPoint(this->width() / 2, this->height() / 2);
+}
+
+QVector<QLineF> RenderArea::getRectLines(QPointF p1, QPointF p2, QPointF p3, QPointF p4)
+{
+	QVector<QLineF> linesVector(4);
+	linesVector.append(QLineF(p1, p2));
+	linesVector.append(QLineF(p2, p3));
+	linesVector.append(QLineF(p3, p4));
+	linesVector.append(QLineF(p4, p1));
+	return linesVector;
 }
