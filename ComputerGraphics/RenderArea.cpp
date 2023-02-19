@@ -13,8 +13,13 @@ void RenderArea::paintEvent(QPaintEvent* event)
 {
 	QPainter painter(this);
 	QPoint offset = getOffset();
+	QPen penRectangle(QColor("black"));
+	painter.setPen(penRectangle);
 	painter.drawLines(getRectLines(QPointF(-10 + offset.x(), 10 + offset.y()), QPointF(20 + offset.x(), 10 + offset.y()),
 		QPointF(20 + offset.x(), -10 + offset.y()), QPointF(-10 + offset.x(), -10 + offset.y())));
+	QPen penPoint(QColor("red"));
+	painter.setPen(penPoint);
+	painter.drawPoint(offset);
 }
 
 QPoint RenderArea::getOffset()
