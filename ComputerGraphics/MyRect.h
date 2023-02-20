@@ -5,7 +5,7 @@
 class MyRect
 {
 public:
-    MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF bottomLeft);
+    MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF bottomLeft, QPoint offset);
     QVector<QLineF> getLines() const;
 
 private:

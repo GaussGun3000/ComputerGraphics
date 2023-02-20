@@ -49,8 +49,8 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	QPen penRectangle(QColor("black"));
 	painter.setPen(penRectangle);
 
-	MyRect Rect (QPointF(-10 + offset.x(), 10 + offset.y()), QPointF(20 + offset.x(), 10 + offset.y()), 
-		QPointF(20 + offset.x(), -10 + offset.y()), QPointF(-10 + offset.x(), -10 + offset.y()));
+	MyRect Rect (QPointF(-10, 10), QPointF(20, 10), 
+		QPointF(20, -10), QPointF(-10, -10), offset);
 	painter.drawLines(Rect.getLines());
 
 	QPen penPoint(QColor("red"));

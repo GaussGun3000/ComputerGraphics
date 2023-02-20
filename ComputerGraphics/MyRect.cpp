@@ -25,21 +25,21 @@ bool MyRect::isRectangle() const {
     qSort(d2, d2 + 6);
 
     // Check if the first two distances are equal and the last four distances are equal
-    return qFuzzyCompare(d2[0], d2[1]) && qFuzzyCompare(d2[1], d2[2]) && qFuzzyCompare(d2[2], d2[3]) && qFuzzyCompare(d2[3], d2[4]) && qFuzzyCompare(d2[4], d2[5]);
+    return qFuzzyCompare(d2[0], d2[1]) && qFuzzyCompare(d2[2], d2[3]) && qFuzzyCompare(d2[4], d2[5]);
 }
 
-MyRect::MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF bottomLeft) :
-    m_topLeft(topLeft),
-    m_topRight(topRight),
-    m_bottomRight(bottomRight),
-    m_bottomLeft(bottomLeft)
+MyRect::MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF bottomLeft, QPoint offset) :
+    m_topLeft(topLeft + offset),
+    m_topRight(topRight + offset),
+    m_bottomRight(bottomRight + offset),
+    m_bottomLeft(bottomLeft + offset)
 {
     if (!isRectangle()) {
         // if the points do not form a rectangle, use default points
-        m_topLeft = QPointF(-20, 20);
-        m_topRight = QPointF(20, 20);
-        m_bottomRight = QPointF(20, -20);
-        m_bottomLeft = QPointF(-20, -20);
+        m_topLeft = QPointF(-20 + offset.x(), 20 + offset.y());
+        m_topRight = QPointF(20 + offset.x(), 20 + offset.y());
+        m_bottomRight = QPointF(20 + offset.x(), -20 + offset.y());
+        m_bottomLeft = QPointF(-20 + offset.x(), -20 + offset.y());
     }
 }
 
