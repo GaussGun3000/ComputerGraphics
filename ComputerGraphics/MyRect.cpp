@@ -1,5 +1,6 @@
 #include "MyRect.h"
 #include <qalgorithms.h>
+#include <QVector>
 
 qreal MyRect::distance2(QPointF p1, QPointF p2) const
 {
@@ -40,5 +41,17 @@ MyRect::MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF b
         m_bottomRight = QPointF(20, -20);
         m_bottomLeft = QPointF(-20, -20);
     }
+}
+
+QVector<QLineF> MyRect::getLines() const
+{
+    QVector<QLineF> lines;
+
+    lines.append(QLineF(m_topLeft, m_topRight));
+    lines.append(QLineF(m_topRight, m_bottomRight));
+    lines.append(QLineF(m_bottomRight, m_bottomLeft));
+    lines.append(QLineF(m_bottomLeft, m_topLeft));
+
+    return lines;
 }
 
