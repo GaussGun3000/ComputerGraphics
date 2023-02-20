@@ -1,31 +1,28 @@
 #include "RenderArea.h"
+#include "MyRect.h"
+#include "qpen.h"
 
 RenderArea::RenderArea(QWidget *parent)
 {
 
 }
 
-
-void RenderArea::paintEvent(QPaintEvent* event)
+void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 {
-	QPainter painter(this);
-	QPoint offset = getOffset();
-	QPen penRectangle(QColor("black"));
-
 	int w = width(); int h = height(); // getting display size
 
-	painter.drawLine(0, offset.y(), w, offset.y()); // x axis
-	painter.drawLine(offset.x(), 0, offset.x(), h); // y axis
+	painter->drawLine(0, offset.y(), w, offset.y()); // x axis
+	painter->drawLine(offset.x(), 0, offset.x(), h); // y axis
 
 	for (int coordX = w / 2; coordX < w; coordX += 50) // marking x axis
 	{
-		if (coordX != w / 2) 
+		if (coordX != w / 2)
 		{
-			painter.drawLine(coordX, offset.y() - 4, coordX, offset.y() + 4); 
-			painter.drawLine(w - coordX, offset.y() - 4, w - coordX, offset.y() + 4);
+			painter->drawLine(coordX, offset.y() - 4, coordX, offset.y() + 4);
+			painter->drawLine(w - coordX, offset.y() - 4, w - coordX, offset.y() + 4);
 			int signX = -w / 2 + coordX;
-			painter.drawText(w - coordX, offset.y() + 15, QString::number(-signX)); // x < 0
-			painter.drawText(coordX, offset.y() + 15, QString::number(signX)); // x > 0
+			painter->drawText(w - coordX, offset.y() + 15, QString::number(-signX)); // x < 0
+			painter->drawText(coordX, offset.y() + 15, QString::number(signX)); // x > 0
 		}
 	}
 
@@ -33,17 +30,29 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	{
 		if (coordY != h / 2)
 		{
-			painter.drawLine(offset.x() - 4, coordY, offset.x() + 4, coordY);
-			painter.drawLine(offset.x() - 4, h - coordY, offset.x() + 4, h - coordY);
+			painter->drawLine(offset.x() - 4, coordY, offset.x() + 4, coordY);
+			painter->drawLine(offset.x() - 4, h - coordY, offset.x() + 4, h - coordY);
 			int signY = -h / 2 + coordY;
-			painter.drawText(offset.x() + 15, coordY, QString::number(-signY)); // y < 0 
-			painter.drawText(offset.x() + 15, h - coordY, QString::number(signY)); // y > 0 
+			painter->drawText(offset.x() + 15, coordY, QString::number(-signY)); // y < 0 
+			painter->drawText(offset.x() + 15, h - coordY, QString::number(signY)); // y > 0 
 		}
 	}
+}
 
+void RenderArea::paintEvent(QPaintEvent* event)
+{
+	QPainter painter(this);
+	QPoint offset = getOffset();
+
+	drawAxes(&painter, offset);
+
+	QPen penRectangle(QColor("black"));
 	painter.setPen(penRectangle);
-	painter.drawLines(getRectLines(QPointF(-10 + offset.x(), 10 + offset.y()), QPointF(20 + offset.x(), 10 + offset.y()),
-		QPointF(20 + offset.x(), -10 + offset.y()), QPointF(-10 + offset.x(), -10 + offset.y()))); 
+
+	MyRect Rect (QPointF(-10 + offset.x(), 10 + offset.y()), QPointF(20 + offset.x(), 10 + offset.y()), 
+		QPointF(20 + offset.x(), -10 + offset.y()), QPointF(-10 + offset.x(), -10 + offset.y()));
+	painter.drawLines(Rect.getLines());
+
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);
 	painter.setPen(penPoint);
