@@ -1,10 +1,12 @@
 #pragma once
 #include <QPointF>
+#include <qline.h>
 
 class MyRect
 {
 public:
     MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF bottomLeft);
+    QVector<QLineF> getLines() const;
 
 private:
     QPointF m_topLeft;
@@ -14,5 +16,6 @@ private:
 
     bool isRectangle() const;
     qreal MyRect::distance2(QPointF p1, QPointF p2) const;
+
 };
 
