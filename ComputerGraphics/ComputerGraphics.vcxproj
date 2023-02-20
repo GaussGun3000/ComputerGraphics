@@ -83,6 +83,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MyRect.cpp" />
     <ClCompile Include="RenderArea.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="MainWindow.ui" />
@@ -92,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="RenderArea.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyRect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
