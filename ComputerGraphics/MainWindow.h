@@ -12,6 +12,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void updateButtonClicked();
+
 private:
     Ui::MainWindowClass ui;
 };

@@ -190,5 +190,25 @@ p, li { white-space: pre-wrap; }
  <resources>
   <include location="MainWindow.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindowClass</receiver>
+   <slot>updateButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>updateButtonClicked()</slot>
+ </slots>
 </ui>
