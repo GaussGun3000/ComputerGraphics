@@ -1,10 +1,17 @@
 #include "RenderArea.h"
 #include "MyRect.h"
 #include "qpen.h"
+#include <QTextEdit>
 
 RenderArea::RenderArea(QWidget *parent)
 {
+	referencePoint = QPoint(0,0);
+}
 
+void RenderArea::updateReferencePoint(int x, int y)
+{
+	referencePoint = QPoint(x,y) + getOffset();
+	update();
 }
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)
@@ -57,6 +64,12 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	penPoint.setWidth(3);
 	painter.setPen(penPoint);
 	painter.drawPoint(offset); 
+
+	QPen newPoint(QColor("blue"));
+	newPoint.setWidth(3);
+	painter.setPen(newPoint);
+	painter.drawPoint(referencePoint);
+
 }
 
 QPoint RenderArea::getOffset()
