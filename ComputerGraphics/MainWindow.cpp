@@ -21,7 +21,7 @@ void MainWindow::updateButtonClicked()
     ui.renderArea->updateReferencePoint(intx, inty);
 
     if (!(okx && oky)) 
-        ui.statusBar->showMessage("data entered incorrectly");
+        ui.statusBar->showMessage("Введены нечисловые символы или поля пусты");
     else 
-        ui.statusBar->showMessage("point is update");
+        ui.statusBar->showMessage("Обновлено");
 }
