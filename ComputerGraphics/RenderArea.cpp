@@ -5,13 +5,18 @@
 
 RenderArea::RenderArea(QWidget *parent)
 {
-	referencePoint = QPoint(0,0);
+	referencePoint = QPoint(0,0); 
+	Angle = 0;
 }
 
 void RenderArea::updateReferencePoint(int x, int y)
 {
 	referencePoint = QPoint(x,y) + getOffset();
-	update();
+}
+
+void RenderArea::updateAngle(int angle)
+{
+	Angle = angle;
 }
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)

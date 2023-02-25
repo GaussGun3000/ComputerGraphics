@@ -12,16 +12,24 @@ MainWindow::~MainWindow()
 void MainWindow::updateButtonClicked()
 {
 
-    bool okx, oky;
+    bool okx, oky, okAng;
 
     QString x = ui.xTextInput->toPlainText();
     QString y = ui.yTextInput->toPlainText();
     int intx = x.toInt(&okx);
     int inty = y.toInt(&oky);
-    ui.renderArea->updateReferencePoint(intx, inty);
 
-    if (!(okx && oky)) 
-        ui.statusBar->showMessage("Введены нечисловые символы или поля пусты");
-    else 
-        ui.statusBar->showMessage("Обновлено");
+
+    QString angle = ui.angleTextInput->toPlainText();
+    int intAng = angle.toInt(&okAng);
+
+    if (!(okx && oky && okAng))
+        ui.statusBar->showMessage(tr("Введены нечисловые символы или поля пусты"));
+    else{
+        ui.statusBar->showMessage(tr("Обновлено"));
+        ui.renderArea->updateReferencePoint(intx, inty);
+        ui.renderArea->updateAngle(intAng);
+        ui.renderArea->update();
+    }
+
 }
