@@ -1,11 +1,10 @@
 #include "MainWindow.h"
-#include "qtextcodec.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
+    ui.statusBar->setFont(QFont("Times New Roman", 10, QFont::Normal));
 }
 
 MainWindow::~MainWindow()
@@ -26,9 +25,9 @@ void MainWindow::updateButtonClicked()
     int intAng = angle.toInt(&okAng);
 
     if (!(okx && oky && okAng))
-        ui.statusBar->showMessage(tr("Введены нечисловые символы или поля пусты"));
+        ui.statusBar->showMessage("Input field are empty or non-digital characters are present");
     else{
-        ui.statusBar->showMessage(tr("Обновлено"));
+        ui.statusBar->showMessage("Updated");
         ui.renderArea->updateReferencePoint(intx, inty);
         ui.renderArea->updateAngle(intAng);
         ui.renderArea->update();
