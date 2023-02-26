@@ -1,9 +1,11 @@
 #include "MainWindow.h"
+#include "qtextcodec.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
 }
 
 MainWindow::~MainWindow()
