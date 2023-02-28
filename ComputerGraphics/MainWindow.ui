@@ -179,7 +179,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QStatusBar" name="statusBar">
    <property name="font">
     <font>
-     <family>Agency FB Cyrillic</family>
+     <family>Segoe UI</family>
     </font>
    </property>
   </widget>

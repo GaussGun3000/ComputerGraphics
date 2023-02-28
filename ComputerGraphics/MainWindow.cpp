@@ -4,7 +4,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    ui.statusBar->setFont(QFont("Times New Roman", 10, QFont::Normal));
 }
 
 MainWindow::~MainWindow()
