@@ -65,15 +65,6 @@ QVector<QLineF> MyRect::getLines() const
     return lines;
 }
 
-bool MyRect::rotateRelativeToPoint(QPointF& referencePoint, int angle)
-{
-    m_topRight = rotatePoint(m_topRight, referencePoint, angle);
-    m_topLeft = rotatePoint(m_topLeft, referencePoint, angle);
-    m_bottomLeft = rotatePoint(m_bottomLeft, referencePoint, angle);
-    m_bottomRight = rotatePoint(m_bottomRight, referencePoint, angle);
-    return true;
-}
-
 QPointF rotatePoint(QPointF& point, QPointF& center, int angle)
 {
     qreal rad = qDegreesToRadians(static_cast<float>(angle));
@@ -83,5 +74,16 @@ QPointF rotatePoint(QPointF& point, QPointF& center, int angle)
     qreal y_prime = x * qSin(rad) + y * qCos(rad);
     return QPointF(x_prime + center.x(), y_prime + center.y());
 }
+
+bool MyRect::rotateRelativeToPoint(QPointF& referencePoint, int angle)
+{
+    m_topRight = rotatePoint(m_topRight, referencePoint, angle);
+    m_topLeft = rotatePoint(m_topLeft, referencePoint, angle);
+    m_bottomLeft = rotatePoint(m_bottomLeft, referencePoint, angle);
+    m_bottomRight = rotatePoint(m_bottomRight, referencePoint, angle);
+    return true;
+}
+
+
 
 
