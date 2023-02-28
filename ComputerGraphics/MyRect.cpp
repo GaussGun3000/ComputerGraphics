@@ -1,6 +1,7 @@
 #include "MyRect.h"
 #include <qalgorithms.h>
 #include <QVector>
+#include <qmath.h>
 
 qreal MyRect::distance2(QPointF p1, QPointF p2) const
 {
@@ -43,6 +44,15 @@ MyRect::MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF b
     }
 }
 
+MyRect::MyRect() : 
+    m_topLeft(QPointF(0,0)),
+    m_topRight(QPointF(0, 0)),
+    m_bottomRight(QPointF(0, 0)),
+    m_bottomLeft(QPointF(0, 0))
+{
+
+}
+
 QVector<QLineF> MyRect::getLines() const
 {
     QVector<QLineF> lines;
@@ -54,4 +64,24 @@ QVector<QLineF> MyRect::getLines() const
 
     return lines;
 }
+
+bool MyRect::rotateRelativeToPoint(QPointF& referencePoint, int angle)
+{
+    m_topRight = rotatePoint(m_topRight, referencePoint, angle);
+    m_topLeft = rotatePoint(m_topLeft, referencePoint, angle);
+    m_bottomLeft = rotatePoint(m_bottomLeft, referencePoint, angle);
+    m_bottomRight = rotatePoint(m_bottomRight, referencePoint, angle);
+    return true;
+}
+
+QPointF rotatePoint(QPointF& point, QPointF& center, int angle)
+{
+    qreal rad = qDegreesToRadians(static_cast<float>(angle));
+    qreal x = point.x() - center.x();
+    qreal y = point.y() - center.y();
+    qreal x_prime = x * qCos(rad) - y * qSin(rad);
+    qreal y_prime = x * qSin(rad) + y * qCos(rad);
+    return QPointF(x_prime + center.x(), y_prime + center.y());
+}
+
 

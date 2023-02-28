@@ -2,6 +2,7 @@
 #include <qwidget.h>
 #include <qpainter.h>
 #include <Qvector.h>
+#include "MyRect.h"
 
 class RenderArea:
     public QWidget
@@ -10,15 +11,20 @@ class RenderArea:
 
 public:
     RenderArea(QWidget* parent);
-    void updateReferencePoint(int x, int y);
-    void updateAngle(int angle);
+    void updateShape(int x, int y, int angle);
+    
 protected:
     void paintEvent(QPaintEvent* event) override;
 private:
-    QPoint referencePoint; 
-    int Angle;
+//methods
+    void updateReferencePoint(int x, int y);
+    void updateAngle(int angle);
     QPoint getOffset();
     QVector<QLineF> getRectLines(QPointF p1, QPointF p2, QPointF p3, QPointF p4);
     void drawAxes(QPainter* painter, QPoint offset);
+//fields
+    QPointF referencePoint;
+    int angle;
+    MyRect myRect;
 };
 

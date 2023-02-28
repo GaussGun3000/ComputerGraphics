@@ -25,11 +25,10 @@ void MainWindow::updateButtonClicked()
 
     if (!(okx && oky && okAng))
         ui.statusBar->showMessage("Input field are empty or non-digital characters are present");
-    else{
+    else
+    {
+        ui.renderArea->updateShape(intx, inty, intAng);
         ui.statusBar->showMessage("Updated");
-        ui.renderArea->updateReferencePoint(intx, inty);
-        ui.renderArea->updateAngle(intAng);
-        ui.renderArea->update();
     }
 
 }

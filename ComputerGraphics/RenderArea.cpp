@@ -6,17 +6,30 @@
 RenderArea::RenderArea(QWidget *parent)
 {
 	referencePoint = QPoint(0,0); 
-	Angle = 0;
+	angle = 0;
+	myRect = MyRect(QPointF(-10, 10), QPointF(20, 10),
+		QPointF(20, -10), QPointF(-10, -10), getOffset());
+}
+
+void RenderArea::updateShape(int x, int y, int angle)
+{
+	if (this->referencePoint != QPointF(x, y) || this->angle != angle)
+	{
+		updateReferencePoint(x, y);
+		updateAngle(angle);
+		this->myRect.rotateRelativeToPoint(referencePoint, this->angle);
+		this->update();
+	}
 }
 
 void RenderArea::updateReferencePoint(int x, int y)
 {
-	referencePoint = QPoint(x,y) + getOffset();
+	referencePoint = QPointF(x,y) + getOffset();
 }
 
 void RenderArea::updateAngle(int angle)
 {
-	Angle = angle;
+	this->angle = angle;
 }
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)
@@ -61,9 +74,7 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	QPen penRectangle(QColor("black"));
 	painter.setPen(penRectangle);
 
-	MyRect Rect (QPointF(-10, 10), QPointF(20, 10), 
-		QPointF(20, -10), QPointF(-10, -10), offset);
-	painter.drawLines(Rect.getLines());
+	painter.drawLines(this->myRect.getLines());
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);
