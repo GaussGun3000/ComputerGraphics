@@ -23,7 +23,7 @@ void RenderArea::updateShape(int x, int y, int angle)
 
 void RenderArea::updateReferencePoint(int x, int y)
 {
-	referencePoint = QPointF(x,y) + getOffset();
+	referencePoint = QPointF(x,-y) + getOffset();
 }
 
 void RenderArea::updateAngle(int angle)
