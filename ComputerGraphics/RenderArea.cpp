@@ -7,8 +7,7 @@ RenderArea::RenderArea(QWidget *parent)
 {
 	referencePoint = QPoint(0,0); 
 	angle = 0;
-	myRect = MyRect(QPointF(-10, 10), QPointF(20, 10),
-		QPointF(20, -10), QPointF(-10, -10), getOffset());
+	myRect = MyRect();
 }
 
 void RenderArea::updateShape(int x, int y, int angle)
@@ -74,7 +73,11 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	QPen penRectangle(QColor("black"));
 	painter.setPen(penRectangle);
 
+	if (!myRect.isInit())
+		myRect = MyRect (QPointF(-10, 10), QPointF(20, 10), QPointF(20, -10), QPointF(-10, -10), offset);
+
 	painter.drawLines(this->myRect.getLines());
+
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);

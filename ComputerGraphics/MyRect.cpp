@@ -42,15 +42,22 @@ MyRect::MyRect(QPointF topLeft, QPointF topRight, QPointF bottomRight, QPointF b
         m_bottomRight = QPointF(20 + offset.x(), -20 + offset.y());
         m_bottomLeft = QPointF(-20 + offset.x(), -20 + offset.y());
     }
+    initialized = true;
 }
 
 MyRect::MyRect() : 
     m_topLeft(QPointF(0,0)),
     m_topRight(QPointF(0, 0)),
     m_bottomRight(QPointF(0, 0)),
-    m_bottomLeft(QPointF(0, 0))
+    m_bottomLeft(QPointF(0, 0)),
+    initialized(false)
 {
 
+}
+
+bool MyRect::isInit()
+{
+    return this->initialized;
 }
 
 QVector<QLineF> MyRect::getLines() const
