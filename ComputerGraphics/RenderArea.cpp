@@ -5,9 +5,12 @@
 
 RenderArea::RenderArea(QWidget *parent)
 {
+	prevRectPen = QPen(Qt::black);
+	prevRectPen.setStyle(Qt::DashLine);
 	referencePoint = QPoint(0,0); 
 	angle = 0;
 	myRect = MyRect();
+	previousRect = MyRect();
 }
 
 void RenderArea::updateShape(int x, int y, int angle)
@@ -16,6 +19,7 @@ void RenderArea::updateShape(int x, int y, int angle)
 	{
 		updateReferencePoint(x, y);
 		updateAngle(angle);
+		this->previousRect = this->myRect;
 		this->myRect.rotateRelativeToPoint(referencePoint, this->angle);
 		this->update();
 	}
@@ -78,6 +82,11 @@ void RenderArea::paintEvent(QPaintEvent* event)
 
 	painter.drawLines(this->myRect.getLines());
 
+	if (previousRect.isInit())
+	{
+		painter.setPen(prevRectPen);
+		painter.drawLines(this->previousRect.getLines());
+	}
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);

@@ -23,8 +23,10 @@ private:
     QVector<QLineF> getRectLines(QPointF p1, QPointF p2, QPointF p3, QPointF p4);
     void drawAxes(QPainter* painter, QPoint offset);
 //fields
+    QPen prevRectPen;
     QPointF referencePoint;
     int angle;
     MyRect myRect;
+    MyRect previousRect;
 };
 
