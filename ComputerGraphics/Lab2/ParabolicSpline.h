@@ -8,7 +8,7 @@ class ParabolicSpline
 public:
 	ParabolicSpline();
 
-	void addPoint();
+	void addPoint(const QPointF& point);
 	QPointF interpolate(double x);
 private:
 	//methods
