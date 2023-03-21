@@ -32,6 +32,9 @@
     <ClCompile Include="Lab2\RenderArea.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ParabolicSpline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Lab2\MainWindow.qrc">
@@ -50,5 +53,10 @@
     <QtMoc Include="Lab2\MainWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ParabolicSpline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

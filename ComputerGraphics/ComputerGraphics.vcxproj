@@ -14,6 +14,7 @@
     <ClCompile Include="Lab2\main.cpp" />
     <ClCompile Include="Lab2\MainWindow.cpp" />
     <ClCompile Include="Lab2\RenderArea.cpp" />
+    <ClCompile Include="ParabolicSpline.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Lab2\MainWindow.qrc" />
@@ -26,6 +27,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Lab2\MainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ParabolicSpline.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C56B01D8-67ED-44E3-BDEA-03313CF8E463}</ProjectGuid>
