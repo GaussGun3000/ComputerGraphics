@@ -90,7 +90,3 @@ bool MyRect::rotateRelativeToPoint(QPointF& referencePoint, int angle)
     m_bottomRight = rotatePoint(m_bottomRight, referencePoint, angle);
     return true;
 }
-
-
-
-
