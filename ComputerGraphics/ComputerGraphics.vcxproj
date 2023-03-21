@@ -10,6 +10,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lab2\main.cpp" />
+    <ClCompile Include="Lab2\MainWindow.cpp" />
+    <ClCompile Include="Lab2\RenderArea.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Lab2\MainWindow.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Lab2\MainWindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Lab2\RenderArea.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Lab2\MainWindow.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C56B01D8-67ED-44E3-BDEA-03313CF8E463}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
@@ -82,21 +99,6 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="MyRect.cpp" />
-    <ClCompile Include="RenderArea.cpp" />
-    <QtRcc Include="MainWindow.qrc" />
-    <QtUic Include="MainWindow.ui" />
-    <QtMoc Include="MainWindow.h" />
-    <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="RenderArea.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MyRect.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />
