@@ -5,9 +5,9 @@
 #include <QDoubleSpinBox>
 #include <memory>
 
-class PointInputElement: QWidget
+class PointInputElement : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit PointInputElement(QWidget* parent = nullptr);
@@ -18,5 +18,6 @@ private:
     std::unique_ptr<QDoubleSpinBox> xSpinBox;
     std::unique_ptr<QDoubleSpinBox> ySpinBox;
     std::unique_ptr<QHBoxLayout> layout;
+    std::unique_ptr<QSpacerItem> spacer;
 };
 

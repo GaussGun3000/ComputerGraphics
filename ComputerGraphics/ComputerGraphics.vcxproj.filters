@@ -35,7 +35,7 @@
     <ClCompile Include="Lab2\ParabolicSpline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PointInputElement.cpp">
+    <ClCompile Include="Lab2\PointInputElement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,7 +56,7 @@
     <QtMoc Include="Lab2\MainWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="PointInputElement.h">
+    <QtMoc Include="Lab2\PointInputElement.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
