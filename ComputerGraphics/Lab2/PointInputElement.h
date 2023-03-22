@@ -12,12 +12,15 @@ class PointInputElement : public QWidget
 public:
     explicit PointInputElement(QWidget* parent = nullptr);
 
+    // likely a desctuctor is needed
+    void setSpinBoxLimits(QPoint& renderAreaBorder);
+
 private:
-    std::unique_ptr<QLabel> xLabel;
-    std::unique_ptr<QLabel> yLabel;
-    std::unique_ptr<QDoubleSpinBox> xSpinBox;
-    std::unique_ptr<QDoubleSpinBox> ySpinBox;
-    std::unique_ptr<QHBoxLayout> layout;
-    std::unique_ptr<QSpacerItem> spacer;
+    QLabel* xLabel;
+    QLabel* yLabel;
+    QSpinBox* xSpinBox;
+    QSpinBox* ySpinBox;
+    QHBoxLayout* layout;
+    QSpacerItem* spacer;
 };
 

@@ -10,6 +10,8 @@ public:
 
 	void addPoint(const QPointF& point);
 	QPointF interpolate(double x);
+
+
 private:
 	//methods
 	void calcParabolas();

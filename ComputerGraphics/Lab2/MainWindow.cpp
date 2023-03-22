@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui.setupUi(this);
     QVBoxLayout* existingLayout = qobject_cast<QVBoxLayout*>(ui.centralWidget->layout());
     PointInputElement* pie = new PointInputElement();
+    pie->setAttribute(Qt::WA_DeleteOnClose);
     existingLayout->addWidget(pie);
 }
 
