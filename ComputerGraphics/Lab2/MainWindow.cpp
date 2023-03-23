@@ -6,9 +6,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui.setupUi(this);
     QVBoxLayout* existingLayout = qobject_cast<QVBoxLayout*>(ui.centralWidget->layout());
-    PointInputElement* pie = new PointInputElement();
-    pie->setAttribute(Qt::WA_DeleteOnClose);
-    existingLayout->addWidget(pie);
+    pointInputElements.reserve(10);
+    for (int i = 0; i < 5; i++)
+    {
+        PointInputElement* pie = new PointInputElement();
+        pointInputElements.push_back(pie);
+        QPoint border = ui.renderArea->getOffset();
+        pie->setSpinBoxLimits(border);
+        existingLayout->addWidget(pie);
+        
+    }
 }
 
 MainWindow::~MainWindow()
@@ -41,5 +48,9 @@ void MainWindow::updateButtonClicked()
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
     //handle window resize event here
-    ui.renderArea->getOffset();
+    for (auto pie : pointInputElements)
+    {
+        QPoint border = ui.renderArea->getOffset();
+        pie->setSpinBoxLimits(border);
+    }
 }

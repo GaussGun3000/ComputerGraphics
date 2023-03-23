@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
 #include "qlayout.h"
+#include "PointInputElement.h"
 
 class MainWindow : public QMainWindow
 {
@@ -19,5 +20,6 @@ protected:
     void resizeEvent(QResizeEvent* event) override;
 
 private:
+    QVector<PointInputElement*> pointInputElements;
     Ui::MainWindowClass ui;
 };
