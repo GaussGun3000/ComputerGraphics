@@ -21,3 +21,11 @@ PointInputElement::PointInputElement(QWidget* parent)
    
     this->setLayout(layout);
 }
+
+void PointInputElement::setSpinBoxLimits(QPoint& renderAreaBorder)
+{
+    xSpinBox->setMaximum(renderAreaBorder.x());
+    xSpinBox->setMinimum(-renderAreaBorder.x());
+    ySpinBox->setMaximum(renderAreaBorder.y());
+    ySpinBox->setMinimum(-renderAreaBorder.y());
+}

@@ -15,6 +15,9 @@ public:
 public slots:
     void updateButtonClicked();
 
+protected:
+    void resizeEvent(QResizeEvent* event) override;
+
 private:
     Ui::MainWindowClass ui;
 };

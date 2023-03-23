@@ -37,3 +37,9 @@ void MainWindow::updateButtonClicked()
     }*/
 
 }
+
+void MainWindow::resizeEvent(QResizeEvent* event)
+{
+    //handle window resize event here
+    ui.renderArea->getOffset();
+}
