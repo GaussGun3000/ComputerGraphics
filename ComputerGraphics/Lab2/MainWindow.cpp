@@ -6,8 +6,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui.setupUi(this);
     QVBoxLayout* existingLayout = qobject_cast<QVBoxLayout*>(ui.centralWidget->layout());
-    PointInputElement* pie = new PointInputElement();
-    existingLayout->addWidget(pie);
+    std::vector<PointInputElement*> points;
+    points.reserve(10);
+
+    for (int i = 0; i < 5; i++)
+    {
+        points.push_back(new PointInputElement());
+        existingLayout->addWidget(points[i]);
+    }
 }
 
 MainWindow::~MainWindow()
