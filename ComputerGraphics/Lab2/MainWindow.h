@@ -15,6 +15,7 @@ public:
 
 public slots:
     void updateButtonClicked();
+    void addPointInputElement();
 
 protected:
     void resizeEvent(QResizeEvent* event) override;
