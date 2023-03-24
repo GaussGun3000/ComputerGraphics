@@ -11,6 +11,7 @@ class PointInputElement : public QWidget
 
 public:
     explicit PointInputElement(QWidget* parent = nullptr);
+    void setSpinBoxLimits(QPoint& renderAreaBorder);
 
     // likely a desctuctor is needed
 

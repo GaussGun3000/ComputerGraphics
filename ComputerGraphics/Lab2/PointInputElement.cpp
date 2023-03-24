@@ -9,7 +9,7 @@ PointInputElement::PointInputElement(QWidget* parent)
     ySpinBox = new QSpinBox();
     layout = new QHBoxLayout();
     spacer = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    
+
     xLabel->setMaximumWidth(15);
     yLabel->setMaximumWidth(15);
 
@@ -18,7 +18,7 @@ PointInputElement::PointInputElement(QWidget* parent)
     layout->addSpacerItem(spacer);
     layout->addWidget(yLabel);
     layout->addWidget(ySpinBox);
-   
+
     this->setLayout(layout);
 }
 
