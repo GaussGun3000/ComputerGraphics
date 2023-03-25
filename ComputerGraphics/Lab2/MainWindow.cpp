@@ -26,22 +26,6 @@ MainWindow::~MainWindow()
 void MainWindow::updateButtonClicked()
 {
 
-    bool okx, oky, okAng;
-
-    /* QString x = ui.xTextInput->toPlainText();
-     QString y = ui.yTextInput->toPlainText();
-     int intx = x.toInt(&okx);
-     int inty = y.toInt(&oky);
-     QString angle = ui.angleTextInput->toPlainText();
-     int intAng = angle.toInt(&okAng);
-     if (!(okx && oky && okAng))
-         ui.statusBar->showMessage("Input field are empty or non-digital characters are present");
-     else
-     {
-         ui.renderArea->updateShape(intx, inty, intAng);
-         ui.statusBar->showMessage("Updated");
-     }*/
-
 }
 
 void MainWindow::AddButtonClicked()
@@ -88,7 +72,6 @@ void MainWindow::RemoveButtonClicked()
 
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
-    //handle window resize event here
     for (auto pie : pointInputElements)
     {
         QPoint border = ui.renderArea->getOffset();
