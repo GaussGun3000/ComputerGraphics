@@ -11,11 +11,10 @@ class PointInputElement : public QWidget
 
 public:
     explicit PointInputElement(QWidget* parent = nullptr);
-    void setSpinBoxLimits(QPoint& renderAreaBorder);
-
-    // likely a desctuctor is needed
 
     void setSpinBoxLimits(QPoint& renderAreaBorder);
+
+    //desctuctor is unnecessary! Destructor call ->  this - layout - [other child widgets] <- deletion order
 
 private:
     QLabel* xLabel;

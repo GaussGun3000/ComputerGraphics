@@ -23,5 +23,7 @@ protected:
 
 private:
     QVector<PointInputElement*> pointInputElements;
+    QPoint pointInputLayoutSize;
     Ui::MainWindowClass ui;
+    
 };
