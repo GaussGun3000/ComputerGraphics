@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33214.272
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComputerGraphics", "ComputerGraphics\ComputerGraphics.vcxproj", "{C56B01D8-67ED-44E3-BDEA-03313CF8E463}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ComputerGraphics", "ComputerGraphics\ComputerGraphics.vcxproj", "{E345B6DA-F5DA-476B-A5C6-82E18579E537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C56B01D8-67ED-44E3-BDEA-03313CF8E463}.Debug|x64.ActiveCfg = Debug|x64
-		{C56B01D8-67ED-44E3-BDEA-03313CF8E463}.Debug|x64.Build.0 = Debug|x64
-		{C56B01D8-67ED-44E3-BDEA-03313CF8E463}.Release|x64.ActiveCfg = Release|x64
-		{C56B01D8-67ED-44E3-BDEA-03313CF8E463}.Release|x64.Build.0 = Release|x64
+		{E345B6DA-F5DA-476B-A5C6-82E18579E537}.Debug|x64.ActiveCfg = Debug|x64
+		{E345B6DA-F5DA-476B-A5C6-82E18579E537}.Debug|x64.Build.0 = Debug|x64
+		{E345B6DA-F5DA-476B-A5C6-82E18579E537}.Release|x64.ActiveCfg = Release|x64
+		{E345B6DA-F5DA-476B-A5C6-82E18579E537}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2F824DD0-A628-49F1-BAF2-10555E04F622}
+		SolutionGuid = {3374DD17-2641-4CB9-8E7A-DE4D634AC24F}
 	EndGlobalSection
 EndGlobal
