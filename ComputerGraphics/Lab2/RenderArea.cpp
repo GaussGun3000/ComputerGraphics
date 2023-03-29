@@ -6,29 +6,14 @@ RenderArea::RenderArea(QWidget *parent)
 {
 	prevRectPen = QPen(Qt::black);
 	prevRectPen.setStyle(Qt::DashLine);
-	referencePoint = QPoint(0,0); 
-	angle = 0;
+	// init spline
 }
 
-void RenderArea::updateShape(int x, int y, int angle)
+void RenderArea::updateSpline(QVector<QPoint>& points)
 {
-	if (this->referencePoint != QPointF(x, y) || this->angle != angle)
-	{
-		updateReferencePoint(x, y);
-		updateAngle(angle);
-		this->update();
-	}
+
 }
 
-void RenderArea::updateReferencePoint(int x, int y)
-{
-	referencePoint = QPointF(x,-y) + getOffset();
-}
-
-void RenderArea::updateAngle(int angle)
-{
-	this->angle = angle;
-}
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 {
@@ -77,11 +62,6 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	painter.setPen(penPoint);
 	painter.drawPoint(offset); 
 
-	QPen newPoint(QColor("blue"));
-	newPoint.setWidth(3);
-	painter.setPen(newPoint);
-	painter.drawPoint(referencePoint);
-
 }
 
 QPoint RenderArea::getOffset()
@@ -92,12 +72,3 @@ QPoint RenderArea::getOffset()
 	return QPoint(this->width() / 2, this->height() / 2);
 }
 
-QVector<QLineF> RenderArea::getRectLines(QPointF p1, QPointF p2, QPointF p3, QPointF p4)
-{
-	QVector<QLineF> linesVector(4);
-	linesVector.append(QLineF(p1, p2));
-	linesVector.append(QLineF(p2, p3));
-	linesVector.append(QLineF(p3, p4));
-	linesVector.append(QLineF(p4, p1));
-	return linesVector;
-}

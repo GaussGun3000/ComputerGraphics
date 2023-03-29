@@ -25,6 +25,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateButtonClicked()
 {
+    // Add methods: to renderArea - the one that is called from here to compare
+    // QVector of points from GUI to QVector of points of the spline. 
+    // If different, create new spline, replacing the existing (should be private field of RenderArea)
 }
 
 void MainWindow::AddButtonClicked()

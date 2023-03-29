@@ -6,15 +6,16 @@
 class ParabolicSpline
 {
 public:
-	ParabolicSpline();
+	ParabolicSpline(QVector<QPoint>& points);
+	QVector<QPoint> getPointsToRender();
+	bool comparePoints(QVector<QPoint>& points);
 
-	void addPoint(const QPointF& point);
-	QPointF interpolate(double x);
-
+	void addPoint(const QPointF& point); // not needed??
 
 private:
 	//methods
 	void calcParabolas();
+	QPointF interpolate(double x);
 
 	//fields
 	QVector<QPointF> m_points;
