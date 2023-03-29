@@ -7,15 +7,23 @@ ParabolicSpline::ParabolicSpline()
 
 ParabolicSpline::ParabolicSpline(QVector<QPointF>& points)
 {
-    
+    this->m_points = points;
+    this->calcParabolas();
 }
 
 void ParabolicSpline::addPoint(const QPointF& point) {
     m_points.append(point);
 }
 
-QVector<QPoint> ParabolicSpline::getPointsToRender()
+QVector<QPoint> ParabolicSpline::getPointsToRender(QPoint offset)
 {
+    //QVector<QPoint> points;
+    for (double x = - offset.x(); x <= offset.x(); x++)
+    {
+      
+        QPoint points(QPoint x, QPoint interpolate(QPoint x));
+        QVector<QPoint> points();
+    }
     return QVector<QPoint>();
 }
 
