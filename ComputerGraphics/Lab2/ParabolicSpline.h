@@ -6,9 +6,10 @@
 class ParabolicSpline
 {
 public:
-	ParabolicSpline(QVector<QPoint>& points);
+	ParabolicSpline();
+	ParabolicSpline(QVector<QPointF>& points);
 	QVector<QPoint> getPointsToRender();
-	bool comparePoints(QVector<QPoint>& points);
+	bool comparePoints(QVector<QPointF>& points);
 
 	void addPoint(const QPointF& point); // not needed??
 

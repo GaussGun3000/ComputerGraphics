@@ -7,6 +7,7 @@ RenderArea::RenderArea(QWidget *parent)
 	prevRectPen = QPen(Qt::black);
 	prevRectPen.setStyle(Qt::DashLine);
 	// init spline
+	spline = std::make_unique<ParabolicSpline>();
 }
 
 void RenderArea::updateSpline(QVector<QPoint>& points)
