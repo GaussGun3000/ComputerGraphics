@@ -25,7 +25,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateButtonClicked()
 {
-
 }
 
 void MainWindow::AddButtonClicked()
