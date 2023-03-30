@@ -2,6 +2,7 @@
 #include <qwidget.h>
 #include <qpainter.h>
 #include <Qvector.h>
+#include "ParabolicSpline.h"
 
 class RenderArea:
     public QWidget
@@ -10,20 +11,16 @@ class RenderArea:
 
 public:
     RenderArea(QWidget* parent);
-    void updateShape(int x, int y, int angle);
+    void updateSpline(QVector<QPoint>& points);
     QPoint getOffset();
     
 protected:
     void paintEvent(QPaintEvent* event) override;
 private:
 //methods
-    void updateReferencePoint(int x, int y);
-    void updateAngle(int angle);
-    QVector<QLineF> getRectLines(QPointF p1, QPointF p2, QPointF p3, QPointF p4);
     void drawAxes(QPainter* painter, QPoint offset);
 //fields
+    std::unique_ptr<ParabolicSpline> spline;
     QPen prevRectPen;
-    QPointF referencePoint;
-    int angle;
 };
 
