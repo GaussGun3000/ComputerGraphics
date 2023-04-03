@@ -7,7 +7,8 @@ ParabolicSpline::ParabolicSpline()
 
 ParabolicSpline::ParabolicSpline(QVector<QPointF>& points)
 {
-    
+    this->m_points = points;
+    this->calcParabolas();
 }
 
 void ParabolicSpline::addPoint(const QPointF& point) 
