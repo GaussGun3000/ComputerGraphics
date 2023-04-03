@@ -18,7 +18,6 @@ bool RenderArea::updateSpline(QVector<QPointF>& points)
 		return false;
 	if (!this->spline->comparePoints(points))
 	{
-		spline.release();
 		spline = std::make_unique<ParabolicSpline>(points);
 		this->update();
 		return true;
@@ -109,6 +108,6 @@ QPoint RenderArea::getOffset()
 *	Calculate cooridnates offset to shift (0,0) for markers to the center of the widget
 */
 {
-	return QPoint(this->width() / 2, this->height() / 2);
+	return QPoint(this->width() / 2, -this->height() / 2);
 }
 
