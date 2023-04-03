@@ -34,7 +34,7 @@
     <QtMoc Include="Lab2\PointInputElement.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C56B01D8-67ED-44E3-BDEA-03313CF8E463}</ProjectGuid>
+    <ProjectGuid>{E345B6DA-F5DA-476B-A5C6-82E18579E537}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
