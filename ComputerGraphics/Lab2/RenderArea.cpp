@@ -51,9 +51,10 @@ void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 		{
 			painter->drawLine(offset.x() - 4, coordY, offset.x() + 4, coordY);
 			painter->drawLine(offset.x() - 4, h - coordY, offset.x() + 4, h - coordY);
-			int signY = -h / 2 + coordY;
-			painter->drawText(offset.x() + 15, coordY, QString::number(-signY)); // y < 0 
-			painter->drawText(offset.x() + 15, h - coordY, QString::number(signY)); // y > 0 
+			int signY = -h / 2 + coordY; 
+			//y directed from top to bottom
+			painter->drawText(offset.x() + 15, coordY, QString::number(signY)); // y > 0 
+			painter->drawText(offset.x() + 15, h - coordY, QString::number(-signY)); // y < 0 
 		}
 	}
 }
