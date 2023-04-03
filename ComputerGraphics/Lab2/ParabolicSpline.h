@@ -12,7 +12,7 @@ public:
 	bool comparePoints(QVector<QPointF>& points);
 
 	void addPoint(const QPointF& point); // not needed??
-
+	bool empty();
 private:
 	//methods
 	void calcParabolas();

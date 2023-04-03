@@ -1,6 +1,7 @@
 #include "RenderArea.h"
 #include "qpen.h"
 #include <QTextEdit>
+#include <QSet>
 
 RenderArea::RenderArea(QWidget *parent)
 {
@@ -10,10 +11,20 @@ RenderArea::RenderArea(QWidget *parent)
 	spline = std::make_unique<ParabolicSpline>();
 }
 
-void RenderArea::updateSpline(QVector<QPoint>& points)
+bool RenderArea::updateSpline(QVector<QPointF>& points)
 {
-
+	if (hasDuplicates(points))
+		return false;
+	if (!this->spline->comparePoints(points))
+	{
+		spline.release();
+		spline = std::make_unique<ParabolicSpline>(points);
+		this->update();
+		return true;
+	}
+	return false;
 }
+
 
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)
@@ -48,6 +59,11 @@ void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 	}
 }
 
+void RenderArea::drawSpline(QPainter* painter, QPoint offset)
+{
+
+}
+
 void RenderArea::paintEvent(QPaintEvent* event)
 {
 	QPainter painter(this);
@@ -55,14 +71,27 @@ void RenderArea::paintEvent(QPaintEvent* event)
 
 	drawAxes(&painter, offset);
 
-	QPen penRectangle(QColor("black"));
-	painter.setPen(penRectangle);
+	QPen splinePen(QColor("black"));
+	painter.setPen(splinePen);
+	if (!this->spline->empty())
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);
 	painter.setPen(penPoint);
 	painter.drawPoint(offset); 
 
+	
+}
+
+bool RenderArea::hasDuplicates(const QVector<QPointF>& points) {
+	QSet<QPointF> uniquePoints;
+	for (const QPointF& point : points) {
+		if (uniquePoints.contains(point)) {
+			return true;
+		}
+		uniquePoints.insert(point);
+	}
+	return false;
 }
 
 QPoint RenderArea::getOffset()

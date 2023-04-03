@@ -14,6 +14,11 @@ void ParabolicSpline::addPoint(const QPointF& point) {
     m_points.append(point);
 }
 
+bool ParabolicSpline::empty()
+{
+    return m_points.size() >= 5;
+}
+
 QVector<QPoint> ParabolicSpline::getPointsToRender()
 {
     return QVector<QPoint>();
@@ -21,7 +26,15 @@ QVector<QPoint> ParabolicSpline::getPointsToRender()
 
 bool ParabolicSpline::comparePoints(QVector<QPointF>& points)
 {
-    return false;
+    int length = points.size();
+    if (length != this -> m_points.size())
+        return false;
+    for (int i = 0; i < length; i++)
+    {
+        if (this->m_points[i] != points[i])
+            return false;
+    }
+    return true;
 }
 
 void ParabolicSpline::calcParabolas() {
