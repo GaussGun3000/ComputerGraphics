@@ -66,10 +66,6 @@ void ParabolicSpline::calcParabolas() {
         double c = y1 - (a * x1 * x1);
         double b = ((y2 - c) / x2) - (2 * a * x2);
 
-        /*double a = (y2 - y1) / ((x2 - x1) * (x1 + x2));
-        double b = (-2 * y1 * x2 + 2 * y2 * x1) / ((x2 - x1) * (x1 + x2));
-        double c = ((x1 * x1 * y2) - (x2 * x2 * y1)) / ((x2 - x1) * (x1 + x2));*/
-
         QVector<double> segmentCoefficients;
         segmentCoefficients.append(a);
         segmentCoefficients.append(b);
