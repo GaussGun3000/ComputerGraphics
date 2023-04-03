@@ -2,13 +2,14 @@
 
 ParabolicSpline::ParabolicSpline()
 {
-
+    m_points = QVector<QPointF>();
 }
 
 ParabolicSpline::ParabolicSpline(QVector<QPointF>& points)
 {
     this->m_points = points;
     this->calcParabolas();
+    this->calcMinMaxX();
 }
 
 void ParabolicSpline::addPoint(const QPointF& point) 
@@ -18,12 +19,23 @@ void ParabolicSpline::addPoint(const QPointF& point)
 
 bool ParabolicSpline::empty()
 {
-    return m_points.size() >= 5;
+    return m_points.size() < 5;
 }
 
-QVector<QPoint> ParabolicSpline::getPointsToRender()
+QVector<QPointF> ParabolicSpline::getPointsToRender(QPoint& offset)
 {
-    return QVector<QPoint>();
+    QVector<QPointF> points;
+    for (double x = m_minX; x < m_maxX; x++)
+        points.append(interpolate(x) + offset);        
+    return points;
+}
+
+QVector<QPointF> ParabolicSpline::getSplinePoints(QPoint& offset)
+{
+    QVector<QPointF> splinePoints;
+    for (auto p : m_points)
+        splinePoints.append(p + offset);
+    return splinePoints;
 }
 
 bool ParabolicSpline::comparePoints(QVector<QPointF>& points)
@@ -51,8 +63,12 @@ void ParabolicSpline::calcParabolas() {
         double y2 = m_points[i + 1].y();
 
         double a = (y2 - y1) / ((x2 - x1) * (x2 + x1));
-        double b = ((-2 * x1 * y2) + (2 * x2 * y1)) / ((x2 - x1) * (x2 + x1));
-        double c = ((x1 * x1 * y2) - (x2 * x2 * y1)) / ((x2 - x1) * (x2 + x1));
+        double c = y1 - (a * x1 * x1);
+        double b = ((y2 - c) / x2) - (2 * a * x2);
+
+        /*double a = (y2 - y1) / ((x2 - x1) * (x1 + x2));
+        double b = (-2 * y1 * x2 + 2 * y2 * x1) / ((x2 - x1) * (x1 + x2));
+        double c = ((x1 * x1 * y2) - (x2 * x2 * y1)) / ((x2 - x1) * (x1 + x2));*/
 
         QVector<double> segmentCoefficients;
         segmentCoefficients.append(a);
@@ -61,6 +77,28 @@ void ParabolicSpline::calcParabolas() {
 
         m_coefficients.append(segmentCoefficients);
     }
+}
+
+void ParabolicSpline::calcMinMaxX() {
+    int n = m_points.size();
+    if (n == 0) {
+        return;
+    }
+
+    double minX = m_points[0].x();
+    double maxX = m_points[0].x();
+
+    for (int i = 1; i < n; i++) {
+        double x = m_points[i].x();
+        if (x < minX) {
+            minX = x;
+        }
+        else if (x > maxX) {
+            maxX = x;
+        }
+    }
+    m_minX = minX;
+    m_maxX = maxX;
 }
 
 QPointF ParabolicSpline::interpolate(double x) {
@@ -79,5 +117,5 @@ QPointF ParabolicSpline::interpolate(double x) {
 
     double y = a * x * x + b * x + c;
 
-    return QPoint(x, y);
+    return QPointF(x, y);
 }

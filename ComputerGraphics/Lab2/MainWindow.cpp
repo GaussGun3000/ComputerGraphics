@@ -28,6 +28,14 @@ void MainWindow::updateButtonClicked()
     // Add methods: to renderArea - the one that is called from here to compare
     // QVector of points from GUI to QVector of points of the spline. 
     // If different, create new spline, replacing the existing (should be private field of RenderArea)
+    QVector<QPointF> points;
+    for (auto pie : this->pointInputElements)
+        points.append(pie->getPoint());
+
+    if (ui.renderArea->updateSpline(points))
+        ui.statusBar->showMessage("Updated the spline");
+    else
+        ui.statusBar->showMessage("Spline was not updated: points haven't changed or duplicate points are present.");
 }
 
 void MainWindow::AddButtonClicked()
@@ -79,5 +87,6 @@ void MainWindow::resizeEvent(QResizeEvent* event)
         QPoint border = ui.renderArea->getOffset();
         pie->setSpinBoxLimits(border);
     }
+    ui.renderArea->update();
 }
 

@@ -1,4 +1,5 @@
 #include "RenderArea.h"
+#include <QtCore>
 #include "qpen.h"
 #include <QTextEdit>
 #include <QSet>
@@ -24,8 +25,6 @@ bool RenderArea::updateSpline(QVector<QPointF>& points)
 	}
 	return false;
 }
-
-
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 {
@@ -59,9 +58,13 @@ void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 	}
 }
 
-void RenderArea::drawSpline(QPainter* painter, QPoint offset)
+void RenderArea::drawSpline(QPainter* painter, QPoint& offset)
 {
-	
+	painter->drawPoints(spline->getPointsToRender(offset));
+	QPen penPoint(QColor("blue"));
+	penPoint.setWidth(3);
+	painter->setPen(penPoint);
+	painter->drawPoints(spline->getSplinePoints(offset));
 }
 
 void RenderArea::paintEvent(QPaintEvent* event)
@@ -81,10 +84,15 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	painter.setPen(penPoint);
 	painter.drawPoint(offset); 
 
-	
+
 }
 
-bool RenderArea::hasDuplicates(const QVector<QPointF>& points) {
+inline uint qHash(const QPointF& p) {
+	return qHash(QPair<qreal, qreal>(qRound(p.x()), qRound(p.y())));
+}
+
+bool RenderArea::hasDuplicates(const QVector<QPointF>& points) 
+{
 	QSet<QPointF> uniquePoints;
 	for (const QPointF& point : points) {
 		if (uniquePoints.contains(point)) {

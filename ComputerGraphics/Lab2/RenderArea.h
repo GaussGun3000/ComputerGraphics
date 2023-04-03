@@ -20,7 +20,7 @@ protected:
 private:
 //methods
     void drawAxes(QPainter* painter, QPoint offset);
-    void drawSpline(QPainter* painter, QPoint offset);
+    void drawSpline(QPainter* painter, QPoint& offset);
 //fields
     std::unique_ptr<ParabolicSpline> spline;
     QPen prevRectPen;

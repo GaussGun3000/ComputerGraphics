@@ -33,7 +33,7 @@ void PointInputElement::setSpinBoxLimits(QPoint& renderAreaBorder)
     ySpinBox->setMinimum(-renderAreaBorder.y());
 }
 
-QPoint PointInputElement::getPoint() {
-    return QPoint(xSpinBox->value(), ySpinBox->value());
+QPointF PointInputElement::getPoint() {
+    return QPointF(xSpinBox->value(), ySpinBox->value());
 }
 

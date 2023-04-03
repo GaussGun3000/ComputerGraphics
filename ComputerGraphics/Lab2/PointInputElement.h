@@ -14,7 +14,7 @@ public:
 
     void setSpinBoxLimits(QPoint& renderAreaBorder);
 
-    QPoint getPoint();
+    QPointF getPoint();
 
     //desctuctor is unnecessary! Destructor call ->  this - layout - [other child widgets] <- deletion order
 
