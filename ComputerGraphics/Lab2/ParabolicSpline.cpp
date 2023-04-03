@@ -1,7 +1,27 @@
 #include "ParabolicSpline.h"
 
+ParabolicSpline::ParabolicSpline()
+{
+
+}
+
+ParabolicSpline::ParabolicSpline(QVector<QPointF>& points)
+{
+    
+}
+
 void ParabolicSpline::addPoint(const QPointF& point) {
     m_points.append(point);
+}
+
+QVector<QPoint> ParabolicSpline::getPointsToRender()
+{
+    return QVector<QPoint>();
+}
+
+bool ParabolicSpline::comparePoints(QVector<QPointF>& points)
+{
+    return false;
 }
 
 void ParabolicSpline::calcParabolas() {

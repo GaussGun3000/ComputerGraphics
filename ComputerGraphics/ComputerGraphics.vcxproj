@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -10,34 +10,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Lab2\main.cpp" />
-    <ClCompile Include="Lab2\MainWindow.cpp" />
-    <ClCompile Include="Lab2\ParabolicSpline.cpp" />
-    <ClCompile Include="Lab2\PointInputElement.cpp" />
-    <ClCompile Include="Lab2\RenderArea.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="Lab2\MainWindow.qrc" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="Lab2\MainWindow.ui" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="Lab2\RenderArea.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="Lab2\MainWindow.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Lab2\ParabolicSpline.h" />
-    <QtMoc Include="Lab2\PointInputElement.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E345B6DA-F5DA-476B-A5C6-82E18579E537}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -54,12 +31,12 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>5.15.2</QtInstall>
+    <QtInstall>5.15.2_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>5.15.2</QtInstall>
+    <QtInstall>5.15.2_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -105,6 +82,27 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Lab2\main.cpp" />
+    <ClCompile Include="Lab2\MainWindow.cpp" />
+    <ClCompile Include="Lab2\ParabolicSpline.cpp" />
+    <ClCompile Include="Lab2\PointInputElement.cpp" />
+    <ClCompile Include="Lab2\RenderArea.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Lab2\MainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lab2\ParabolicSpline.h" />
+    <QtMoc Include="Lab2\RenderArea.h" />
+    <QtMoc Include="Lab2\PointInputElement.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Lab2\MainWindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Lab2\MainWindow.qrc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget* parent)
     pointInputElements.reserve(10);
     for (int i = 0; i < 5; i++)
     {
-        PointInputElement* pie = new PointInputElement();
+        PointInputElement* pie = new PointInputElement(this, i + 1);
         pointInputElements.push_back(pie);
         QPoint border = ui.renderArea->getOffset();
         pie->setSpinBoxLimits(border);
@@ -25,7 +25,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateButtonClicked()
 {
-
+    // Add methods: to renderArea - the one that is called from here to compare
+    // QVector of points from GUI to QVector of points of the spline. 
+    // If different, create new spline, replacing the existing (should be private field of RenderArea)
 }
 
 void MainWindow::AddButtonClicked()
@@ -34,7 +36,7 @@ void MainWindow::AddButtonClicked()
     ui.removeButton->setDisabled(false);
     if (pointInputElements.size() < 10)
     {
-        PointInputElement* pie = new PointInputElement();
+        PointInputElement* pie = new PointInputElement(this, pointInputElements.size() + 1);
         quint32 h = pie->height();
         ui.PIElayout->setMaximumHeight(ui.PIElayout->height() + h + existingLayout->spacing());
         pointInputElements.push_back(pie);
