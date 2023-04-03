@@ -61,7 +61,7 @@ void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 
 void RenderArea::drawSpline(QPainter* painter, QPoint offset)
 {
-
+	
 }
 
 void RenderArea::paintEvent(QPaintEvent* event)
@@ -74,6 +74,7 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	QPen splinePen(QColor("black"));
 	painter.setPen(splinePen);
 	if (!this->spline->empty())
+		drawSpline(&painter, offset);
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);
