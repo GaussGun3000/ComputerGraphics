@@ -1,6 +1,7 @@
 #pragma once
 #include <QVector>
 #include <QPointF>
+#include <QLine>
 
 
 class ParabolicSpline
@@ -9,6 +10,7 @@ public:
 	ParabolicSpline();
 	ParabolicSpline(QVector<QPointF>& points);
 	QVector<QPointF> getPointsToRender(QPoint& offset);
+	QVector<QLineF> getLinesToRender(QVector<QPointF> points);
 	QVector<QPointF> getSplinePoints(QPoint& offset);
 	bool comparePoints(QVector<QPointF>& points);
 	void sortPointsByX(QVector<QPointF>& points);

@@ -31,6 +31,17 @@ QVector<QPointF> ParabolicSpline::getPointsToRender(QPoint& offset) // calculati
     return points;
 }
 
+QVector<QLineF> ParabolicSpline::getLinesToRender(QVector<QPointF> points) // connecting neighboring points with a line
+{
+    QVector<QLineF> lines;
+    for (int i = 0; i < points.size() - 1; i++) 
+    {
+        QLineF line(points[i], points[i + 1]);
+        lines.append(line);
+    }
+    return lines;
+}
+
 QVector<QPointF> ParabolicSpline::getSplinePoints(QPoint& offset) // input points
 {
     QVector<QPointF> splinePoints;

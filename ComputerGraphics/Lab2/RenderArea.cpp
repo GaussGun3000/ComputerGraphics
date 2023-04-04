@@ -60,11 +60,13 @@ void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 
 void RenderArea::drawSpline(QPainter* painter, QPoint& offset)
 {
-	painter->drawPoints(spline->getPointsToRender(offset));
+	//painter->drawPoints(spline->getPointsToRender(offset));
+	painter->drawLines(spline->getLinesToRender(spline->getPointsToRender(offset)));
 	QPen penPoint(QColor("blue"));
 	penPoint.setWidth(3);
 	painter->setPen(penPoint);
 	painter->drawPoints(spline->getSplinePoints(offset));
+
 }
 
 void RenderArea::paintEvent(QPaintEvent* event)
