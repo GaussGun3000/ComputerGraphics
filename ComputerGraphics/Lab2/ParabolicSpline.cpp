@@ -7,6 +7,7 @@ ParabolicSpline::ParabolicSpline()
 
 ParabolicSpline::ParabolicSpline(QVector<QPointF>& points)
 {
+    sortPointsByX(points);
     this->m_points = points;
     this->calcParabolas();
     this->calcMinMaxX();
@@ -22,7 +23,7 @@ bool ParabolicSpline::empty()
     return m_points.empty();
 }
 
-QVector<QPointF> ParabolicSpline::getPointsToRender(QPoint& offset)
+QVector<QPointF> ParabolicSpline::getPointsToRender(QPoint& offset) // calculating points that form the spline
 {
     QVector<QPointF> points;
     for (double x = m_minX; x < m_maxX; x++)
@@ -30,7 +31,7 @@ QVector<QPointF> ParabolicSpline::getPointsToRender(QPoint& offset)
     return points;
 }
 
-QVector<QPointF> ParabolicSpline::getSplinePoints(QPoint& offset)
+QVector<QPointF> ParabolicSpline::getSplinePoints(QPoint& offset) // input points
 {
     QVector<QPointF> splinePoints;
     for (auto p : m_points)
@@ -49,6 +50,18 @@ bool ParabolicSpline::comparePoints(QVector<QPointF>& points)
             return false;
     }
     return true;
+}
+
+void ParabolicSpline::sortPointsByX(QVector<QPointF>& points)
+{
+    int n = points.size();
+    for (int i = 0; i < n - 1; i++) { // bubble sort
+        for (int j = 0; j < n - i - 1; j++) {
+            if (points[j].x() > points[j + 1].x()) {
+                std::swap(points[j], points[j + 1]);
+            }
+        }
+    }
 }
 
 void ParabolicSpline::calcParabolas() {

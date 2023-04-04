@@ -11,6 +11,7 @@ public:
 	QVector<QPointF> getPointsToRender(QPoint& offset);
 	QVector<QPointF> getSplinePoints(QPoint& offset);
 	bool comparePoints(QVector<QPointF>& points);
+	void sortPointsByX(QVector<QPointF>& points);
 
 	void addPoint(const QPointF& point); // not needed??
 	bool empty();
