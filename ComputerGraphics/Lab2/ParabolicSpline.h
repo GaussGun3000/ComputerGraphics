@@ -1,7 +1,7 @@
 #pragma once
 #include <QVector>
 #include <QPointF>
-#include <QLine>
+#include <QLineF>
 
 
 class ParabolicSpline
