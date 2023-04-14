@@ -23,46 +23,32 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab2\MainWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lab2\PointInputElement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lab2\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lab2\RenderArea.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lab2\ParabolicSpline.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="Lab2\MainWindow.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Lab2\PointInputElement.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Lab2\RenderArea.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Lab2\ParabolicSpline.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="Lab2\MainWindow.ui">
+    <QtUic Include="Lab3\MainWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="Lab2\MainWindow.qrc">
+    <QtRcc Include="Lab3\MainWindow.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lab3\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab3\MainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab3\RenderArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Lab3\MainWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Lab3\RenderArea.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>
