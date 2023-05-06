@@ -2,6 +2,11 @@
 
 BezierSurface::BezierSurface()
 {
+	//
+}
+
+BezierSurface::BezierSurface(const QVector<QVector3D>& controlPoints) {
+	setControlPoints(controlPoints);
 }
 
 BezierSurface::BezierSurface(const QVector<QVector3D>& controlPoints)
