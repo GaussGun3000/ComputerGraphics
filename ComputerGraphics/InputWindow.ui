@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>InputWindow</class>
+ <widget class="QWidget" name="InputWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>525</width>
-    <height>406</height>
+    <width>450</width>
+    <height>350</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>450</width>
+    <height>350</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>450</width>
+    <height>350</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>InputWindow</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="6" column="2">
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="text">
-      <string>Close</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
-   </item>
+   <property name="bottomMargin">
+    <number>9</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>2</number>
+   </property>
    <item row="1" column="2">
     <widget class="QDoubleSpinBox" name="dsb_1_y"/>
    </item>
-   <item row="5" column="1">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
+   <item row="5" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_11"/>
    </item>
    <item row="6" column="1">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
-      <string>Random</string>
+      <string>Сгенерировать</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="1">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+   <item row="5" column="1">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
    </item>
    <item row="4" column="0">
     <widget class="QLabel" name="label_3">
      <property name="text">
-      <string>Poin 3</string>
+      <string>Point 3</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QDoubleSpinBox" name="dsb_1_x"/>
-   </item>
-   <item row="1" column="3">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
-   </item>
-   <item row="3" column="2">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+   <item row="4" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_1">
@@ -63,8 +65,31 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="3">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
+   <item row="6" column="2">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="text">
+      <string>Сохранить</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Point 4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+   </item>
+   <item row="3" column="2">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+   </item>
+   <item row="3" column="1">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+   </item>
+   <item row="5" column="2">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_10"/>
    </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_2">
@@ -76,24 +101,141 @@
    <item row="4" column="2">
     <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
    </item>
-   <item row="5" column="2">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_10"/>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="label_4">
-     <property name="text">
-      <string>Point 4</string>
-     </property>
-    </widget>
+   <item row="4" column="1">
+    <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
    </item>
    <item row="3" column="3">
     <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
    </item>
-   <item row="5" column="3">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_11"/>
+   <item row="1" column="1">
+    <widget class="QDoubleSpinBox" name="dsb_1_x"/>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>120</width>
+       <height>10</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLabel" name="label_5">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>120</width>
+       <height>10</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QLabel" name="label_6">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>120</width>
+       <height>10</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Z</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>InputWindow</receiver>
+   <slot>randomButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>189</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>43</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>InputWindow</receiver>
+   <slot>saveButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>291</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>randomButtonClicked()</slot>
+  <slot>saveButtonClicked()</slot>
+ </slots>
 </ui>

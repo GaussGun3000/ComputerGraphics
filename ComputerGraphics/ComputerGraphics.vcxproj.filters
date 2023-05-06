@@ -59,12 +59,12 @@
     <QtMoc Include="Lab3\RenderArea.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Lab3\InputWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lab3\BilinearSurface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lab3\InputWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

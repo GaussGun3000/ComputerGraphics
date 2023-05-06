@@ -1,4 +1,5 @@
 #include "MainWindow.h"
+#include "InputWindow.h"
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -11,9 +12,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateButtonClicked()
 {
-
+    ui.statusBar->showMessage("a");
 }
 
+
+void MainWindow::inputButtonClicked()
+{
+    ui.statusBar->showMessage("aa");
+    InputWindow inputWindow(this);
+    inputWindow.exec();
+}
 
 void MainWindow::resizeEvent(QResizeEvent* event)
 {

@@ -32,7 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lab3\BilinearSurface.h" />
-    <ClInclude Include="Lab3\InputWindow.h" />
+    <QtMoc Include="Lab3\InputWindow.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E345B6DA-F5DA-476B-A5C6-82E18579E537}</ProjectGuid>

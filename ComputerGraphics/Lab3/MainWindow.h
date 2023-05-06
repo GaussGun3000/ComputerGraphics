@@ -14,8 +14,7 @@ public:
 
 public slots:
     void updateButtonClicked();
-    void AddButtonClicked();
-    void RemoveButtonClicked();
+    void inputButtonClicked();
 
 protected:
     void resizeEvent(QResizeEvent* event) override;
