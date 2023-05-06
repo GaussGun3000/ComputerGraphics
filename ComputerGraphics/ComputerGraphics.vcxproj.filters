@@ -26,6 +26,9 @@
     <QtUic Include="Lab3\MainWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="InputWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Lab3\MainWindow.qrc">
@@ -42,10 +45,10 @@
     <ClCompile Include="Lab3\RenderArea.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lab3\BezierSurface.cpp">
+    <ClCompile Include="Lab3\BilinearSurface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lab3\Polyhedron.cpp">
+    <ClCompile Include="Lab3\InputWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,12 +59,12 @@
     <QtMoc Include="Lab3\RenderArea.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Lab3\InputWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Lab3\BezierSurface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lab3\Polyhedron.h">
+    <ClInclude Include="Lab3\BilinearSurface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

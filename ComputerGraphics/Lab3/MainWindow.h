@@ -11,11 +11,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void saveInputData(QVector<QVector3D> points);
 
 public slots:
     void updateButtonClicked();
-    void AddButtonClicked();
-    void RemoveButtonClicked();
+    void inputButtonClicked();
 
 protected:
     void resizeEvent(QResizeEvent* event) override;

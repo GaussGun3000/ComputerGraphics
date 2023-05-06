@@ -1,4 +1,6 @@
 #include "MainWindow.h"
+#include "InputWindow.h"
+#include <QVector3D>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -9,11 +11,24 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {}
 
-void MainWindow::updateButtonClicked()
+void MainWindow::saveInputData(QVector<QVector3D> points)
 {
-
+    ui.statusBar->showMessage("aaa");
 }
 
+
+void MainWindow::updateButtonClicked()
+{
+    ui.statusBar->showMessage("a");
+}
+
+
+void MainWindow::inputButtonClicked()
+{
+    ui.statusBar->showMessage("aa");
+    InputWindow inputWindow(this);
+    inputWindow.exec();
+}
 
 void MainWindow::resizeEvent(QResizeEvent* event)
 {
