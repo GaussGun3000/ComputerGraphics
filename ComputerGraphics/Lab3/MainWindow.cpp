@@ -11,9 +11,9 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {}
 
-void MainWindow::saveInputData(QVector<QVector3D> points)
+void MainWindow::saveInputData(QVector<QVector3D>& points)
 {
-    ui.statusBar->showMessage("aaa");
+    ui.renderArea->surface->setCornerPoints(points);
 }
 
 

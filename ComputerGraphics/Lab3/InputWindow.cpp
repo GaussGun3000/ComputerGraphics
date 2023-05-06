@@ -7,6 +7,7 @@ InputWindow::InputWindow(QWidget* parent):
 QDialog(parent)
 {
     ui.setupUi(this);
+    fillOldValues();
 }
 
 void InputWindow::saveButtonClicked()
@@ -22,6 +23,11 @@ void InputWindow::saveButtonClicked()
     points[3] = QVector3D(ui.spinBox_x4->value(), ui.spinBox_y4->value(), ui.spinBox_z4->value());
 
     mainWindow->saveInputData(points);
+}
+
+void InputWindow::fillOldValues()
+{
+
 }
 
 void InputWindow::randomButtonClicked()

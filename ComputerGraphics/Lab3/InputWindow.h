@@ -13,6 +13,8 @@ public slots:
     void saveButtonClicked();
 
 private:
+    void fillOldValues();
+
     Ui::InputWindow ui;
     // Add any additional functions for the secondary window here
 };
