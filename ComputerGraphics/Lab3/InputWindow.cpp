@@ -16,9 +16,10 @@ void InputWindow::saveButtonClicked()
     
     points.reserve(4);
 
-
-
-    //extract the points from spin boxes (can use lab2 as example)
+    points[0] = QVector3D(ui.spinBox_x1->value(), ui.spinBox_y1->value(), ui.spinBox_z1->value());
+    points[1] = QVector3D(ui.spinBox_x2->value(), ui.spinBox_y2->value(), ui.spinBox_z2->value());
+    points[2] = QVector3D(ui.spinBox_x3->value(), ui.spinBox_y3->value(), ui.spinBox_z3->value());
+    points[3] = QVector3D(ui.spinBox_x4->value(), ui.spinBox_y4->value(), ui.spinBox_z4->value());
 
     mainWindow->saveInputData(points);
 }
