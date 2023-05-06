@@ -6,6 +6,7 @@
 BilinearSurface::BilinearSurface()
 {
     m_cornerPoints = QVector<QVector3D>();
+    m_cornerPoints.reserve(4);
 }
 
 BilinearSurface::~BilinearSurface()
