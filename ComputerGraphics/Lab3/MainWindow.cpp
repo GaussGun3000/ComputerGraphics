@@ -16,6 +16,11 @@ void MainWindow::saveInputData(QVector<QVector3D>& points)
     ui.renderArea->surface->setCornerPoints(points);
 }
 
+QVector<QVector3D> MainWindow::getSurfaseData()
+{
+    return ui.renderArea->surface->cornerPoints();
+}
+
 
 void MainWindow::updateButtonClicked()
 {

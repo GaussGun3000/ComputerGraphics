@@ -27,7 +27,27 @@ void InputWindow::saveButtonClicked()
 
 void InputWindow::fillOldValues()
 {
+    MainWindow* mainWindow = qobject_cast<MainWindow*>(parent()); 
+    auto points = mainWindow->getSurfaseData();
 
+    if (!points.empty())
+    {
+        ui.spinBox_x1->setValue(points[0].x());
+        ui.spinBox_y1->setValue(points[0].y());
+        ui.spinBox_z1->setValue(points[0].z());
+
+        ui.spinBox_x2->setValue(points[1].x());
+        ui.spinBox_y2->setValue(points[1].y());
+        ui.spinBox_z2->setValue(points[1].z());
+
+        ui.spinBox_x3->setValue(points[2].x());
+        ui.spinBox_y3->setValue(points[2].y());
+        ui.spinBox_z3->setValue(points[2].z());
+
+        ui.spinBox_x4->setValue(points[3].x());
+        ui.spinBox_y4->setValue(points[3].y());
+        ui.spinBox_z4->setValue(points[3].z());
+    }
 }
 
 void InputWindow::randomButtonClicked()
