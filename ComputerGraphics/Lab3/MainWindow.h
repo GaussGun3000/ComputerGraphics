@@ -11,6 +11,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void saveInputData(QVector<QVector3D> points);
 
 public slots:
     void updateButtonClicked();

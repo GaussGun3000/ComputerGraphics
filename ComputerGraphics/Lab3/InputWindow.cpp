@@ -1,4 +1,5 @@
 #include "InputWindow.h"
+#include "MainWindow.h"
 #include <QRandomGenerator>
 #include <QVector3D>
 
@@ -10,6 +11,12 @@ QDialog(parent)
 
 void InputWindow::saveButtonClicked()
 {
+    MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
+    QVector<QVector3D> points; 
+
+    //extract the points from spin boxes (can use lab2 as example)
+
+    mainWindow->saveInputData(points);
 }
 
 void InputWindow::randomButtonClicked()

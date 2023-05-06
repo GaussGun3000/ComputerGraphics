@@ -10,6 +10,12 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {}
 
+void MainWindow::saveInputData(QVector<QVector3D> points)
+{
+    ui.statusBar->showMessage("aaa");
+}
+
+
 void MainWindow::updateButtonClicked()
 {
     ui.statusBar->showMessage("a");
