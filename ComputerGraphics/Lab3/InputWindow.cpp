@@ -21,5 +21,5 @@ void InputWindow::saveButtonClicked()
 
 void InputWindow::randomButtonClicked()
 {
-
+    
 }

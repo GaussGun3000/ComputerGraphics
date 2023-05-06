@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 #include "InputWindow.h"
+#include <qvector3d.h>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
