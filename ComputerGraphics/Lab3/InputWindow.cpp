@@ -11,3 +11,8 @@ QDialog(parent)
 void InputWindow::saveButtonClicked()
 {
 }
+
+void InputWindow::randomButtonClicked()
+{
+
+}
