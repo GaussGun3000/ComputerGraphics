@@ -33,10 +33,10 @@
     <number>2</number>
    </property>
    <item row="1" column="2">
-    <widget class="QDoubleSpinBox" name="dsb_1_y"/>
+    <widget class="QDoubleSpinBox" name="spinBox_y1"/>
    </item>
    <item row="5" column="3">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_11"/>
+    <widget class="QDoubleSpinBox" name="spinBox_z4"/>
    </item>
    <item row="6" column="1">
     <widget class="QPushButton" name="pushButton">
@@ -46,7 +46,7 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
+    <widget class="QDoubleSpinBox" name="spinBox_x4"/>
    </item>
    <item row="4" column="0">
     <widget class="QLabel" name="label_3">
@@ -56,7 +56,7 @@
     </widget>
    </item>
    <item row="4" column="3">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
+    <widget class="QDoubleSpinBox" name="spinBox_z3"/>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_1">
@@ -80,16 +80,16 @@
     </widget>
    </item>
    <item row="1" column="3">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+    <widget class="QDoubleSpinBox" name="spinBox_z1"/>
    </item>
    <item row="3" column="2">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+    <widget class="QDoubleSpinBox" name="spinBox_y2"/>
    </item>
    <item row="3" column="1">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+    <widget class="QDoubleSpinBox" name="spinBox_x2"/>
    </item>
    <item row="5" column="2">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_10"/>
+    <widget class="QDoubleSpinBox" name="spinBox_y4"/>
    </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_2">
@@ -99,16 +99,16 @@
     </widget>
    </item>
    <item row="4" column="2">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
+    <widget class="QDoubleSpinBox" name="spinBox_y3"/>
    </item>
    <item row="4" column="1">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
+    <widget class="QDoubleSpinBox" name="spinBox_x3"/>
    </item>
    <item row="3" column="3">
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+    <widget class="QDoubleSpinBox" name="spinBox_z2"/>
    </item>
    <item row="1" column="1">
-    <widget class="QDoubleSpinBox" name="dsb_1_x"/>
+    <widget class="QDoubleSpinBox" name="spinBox_x1"/>
    </item>
    <item row="0" column="1">
     <widget class="QLabel" name="label">
