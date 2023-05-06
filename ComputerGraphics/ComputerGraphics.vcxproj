@@ -12,15 +12,16 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Lab3\MainWindow.ui" />
+    <QtUic Include="InputWindow.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Lab3\MainWindow.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab3\BezierSurface.cpp" />
+    <ClCompile Include="Lab3\BilinearSurface.cpp" />
     <ClCompile Include="Lab3\main.cpp" />
     <ClCompile Include="Lab3\MainWindow.cpp" />
-    <ClCompile Include="Lab3\Polyhedron.cpp" />
+    <ClCompile Include="Lab3\InputWindow.cpp" />
     <ClCompile Include="Lab3\RenderArea.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,8 +31,8 @@
     <QtMoc Include="Lab3\RenderArea.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Lab3\BezierSurface.h" />
-    <ClInclude Include="Lab3\Polyhedron.h" />
+    <ClInclude Include="Lab3\BilinearSurface.h" />
+    <ClInclude Include="Lab3\InputWindow.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E345B6DA-F5DA-476B-A5C6-82E18579E537}</ProjectGuid>
