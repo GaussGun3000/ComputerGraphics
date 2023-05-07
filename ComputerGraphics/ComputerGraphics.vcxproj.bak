@@ -13,6 +13,7 @@
   <ItemGroup>
     <QtUic Include="Lab3\InputWindow.ui" />
     <QtUic Include="Lab3\MainWindow.ui" />
+    <QtUic Include="InputWindow.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Lab3\MainWindow.qrc" />
@@ -79,8 +80,6 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>E:\Software\vcpkg\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Software\vcpkg\vcpkg\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
@@ -88,9 +87,6 @@
     <ClCompile>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
-    <Link>
-      <AdditionalDependencies>OpenGL32.Lib;GlU32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>

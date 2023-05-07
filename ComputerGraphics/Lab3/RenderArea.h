@@ -1,27 +1,41 @@
 #pragma once
-#include "BilinearSurface.h"
-#include <qwidget.h>
-#include <qpainter.h>
-#include <Qvector.h>
-#include <qvector3d.h>
-#include <qscopedpointer.h>
 
-class RenderArea:
-    public QWidget
+#include <QWidget>
+#include <QVector>
+#include <QVector3D>
+#include <QScopedPointer>
+#include <QOpenGLWidget>
+#include <QOpenGLFunctions>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLBuffer>
+#include <QOpenGLVertexArrayObject>
+#include "BilinearSurface.h"
+
+class RenderArea : public QOpenGLWidget, public QOpenGLFunctions
 {
     Q_OBJECT
 
 public:
-    RenderArea(QWidget* parent);
-    bool updateSurface(QVector<QVector3D>& points, float angleX, float angleY);
-    QPoint getOffset();
-
+    RenderArea(QWidget* parent = nullptr);
+    bool updateSurface(float angleX, float angleY);
     QScopedPointer<BilinearSurface> surface;
-    
+
+
 protected:
-    void paintEvent(QPaintEvent* event) override;
-    bool hasDuplicates(const QVector<QPointF>& points);
+    void initializeGL() override;
+    void paintGL() override;
+    void resizeGL(int width, int height) override;
+
 private:
-    
+    void paintAxis();
+
+    QVector<QVector3D> surfacePoints;
+    QVector3D cameraPosition;
+    QOpenGLShaderProgram* m_shaderProgram;
+    QOpenGLBuffer* m_vbo;
+    QOpenGLVertexArrayObject* m_vao;
+    float cameraDistance;
+    float m_angleX;
+    float m_angleY;
 };
 

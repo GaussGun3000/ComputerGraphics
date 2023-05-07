@@ -24,7 +24,7 @@ QVector<QVector3D> MainWindow::getSurfaseData()
 
 void MainWindow::updateButtonClicked()
 {
-    ui.statusBar->showMessage("a");
+    ui.renderArea->updateSurface(0, 0);
 }
 
 
