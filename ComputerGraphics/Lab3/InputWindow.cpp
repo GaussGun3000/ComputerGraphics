@@ -52,21 +52,23 @@ void InputWindow::fillOldValues()
 
 void InputWindow::randomButtonClicked()
 {
-    double x1 = (rand() % 10100) * 0.01;
-    double y1 = (rand() % 10100) * 0.01;
-    double z1 = (rand() % 10100) * 0.01;
+    uint32_t maxval = 5;
+    maxval *= 100;
+    double x1 = (rand() % maxval) * 0.01;
+    double y1 = (rand() % maxval) * 0.01;
+    double z1 = (rand() % maxval) * 0.01;
 
-    double x2 = (rand() % 10100) * 0.01;
-    double y2 = (rand() % 10100) * 0.01;
-    double z2 = (rand() % 10100) * 0.01;
+    double x2 = (rand() % maxval) * 0.01;
+    double y2 = (rand() % maxval) * 0.01;
+    double z2 = (rand() % maxval) * 0.01;
 
-    double x3 = (rand() % 10100) * 0.01;
-    double y3 = (rand() % 10100) * 0.01;
-    double z3 = (rand() % 10100) * 0.01;
+    double x3 = (rand() % maxval) * 0.01;
+    double y3 = (rand() % maxval) * 0.01;
+    double z3 = (rand() % maxval) * 0.01;
     
-    double x4 = (rand() % 10100) * 0.01;
-    double y4 = (rand() % 10100) * 0.01;
-    double z4 = (rand() % 10100) * 0.01;
+    double x4 = (rand() % maxval) * 0.01;
+    double y4 = (rand() % maxval) * 0.01;
+    double z4 = (rand() % maxval) * 0.01;
 
     ui.spinBox_x1->setValue(x1);
     ui.spinBox_y1->setValue(y1);

@@ -30,7 +30,6 @@ void MainWindow::updateButtonClicked()
 
 void MainWindow::inputButtonClicked()
 {
-    ui.statusBar->showMessage("aa");
     InputWindow inputWindow(this);
     inputWindow.exec();
 }

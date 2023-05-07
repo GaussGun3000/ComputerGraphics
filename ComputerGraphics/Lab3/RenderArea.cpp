@@ -115,45 +115,22 @@ void RenderArea::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     paintAxis();
+    paintCornerPoints();
 
-    glColor3f(0.0, 1.0, 0.0); // Green
-    glBegin(GL_LINE_LOOP);
-    //GLfloat vertices[] = {
-    //    -1.0f, -1.0f, -1.0f, // 0
-    //    -1.0f, -1.0f,  1.0f, // 1
-    //    -1.0f,  1.0f,  1.0f, // 2
-    //     1.0f,  1.0f,  1.0f, // 3
-    //     1.0f,  1.0f, -1.0f, // 4
-    //    -1.0f,  1.0f, -1.0f, // 5
-    //     1.0f, -1.0f,  1.0f, // 6
-    //     1.0f, -1.0f, -1.0f  // 7
-    //};
+    glColor3f(1.0, 1.0, 1.0); // White
+    //glBindTexture(GL_TEXTURE_2D, textureId);
 
-    //// Define the edges of the cube
-    //GLuint edges[] = {
-    //    0, 1,
-    //    1, 2,
-    //    2, 3,
-    //    3, 4,
-    //    4, 5,
-    //    5, 0,
-    //    6, 7,
-    //    7, 4,
-    //    4, 3,
-    //    3, 2,
-    //    2, 5,
-    //    5, 6,
-    //    6, 1,
-    //    1, 0,
-    //    0, 7,
-    //    7, 6
-    //};
+    // Define the vertices and texture coordinates
 
-    //glColor3f(1.0f, 1.0f, 1.0f); // Set the color to white
-    //for (int i = 0; i < 24; i += 2) {
-    //    glVertex3fv(vertices + (3 * edges[i]));
-    //    glVertex3fv(vertices + (3 * edges[i + 1]));
-    //}
+    // Draw the surface
+    glBegin(GL_POINTS);
+
+    glVertex3f(1.f, 1.f, 1.f);
+
+    for (auto p : surfacePoints)
+    {
+        glVertex3f(p.x(), p.y(), p.z());
+    }
     glEnd();
 }
 
@@ -184,6 +161,22 @@ void RenderArea::paintAxis()
     glVertex3f(0.0f, 0.0f, 0.0f);
     glVertex3f(0.0f, 0.0f, 10.0f);
     glEnd();
+}
+
+void RenderArea::paintCornerPoints()
+{
+    glColor3f(1.0f, 1.0f, 0.0f); // set color to yellow
+    glPointSize(3.0f); // set point size to 10
+
+    glBegin(GL_POINTS);
+    QVector<QVector3D> points = surface->cornerPoints();
+    for (const QVector3D& point : points)
+        glVertex3f(point.x(), point.y(), point.z()); // draw point
+    glEnd();
+
+    // reset color and point size to defaults
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glPointSize(1.0f);
 }
 
 

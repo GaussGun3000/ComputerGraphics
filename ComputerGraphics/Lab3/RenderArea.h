@@ -28,6 +28,7 @@ protected:
 
 private:
     void paintAxis();
+    void paintCornerPoints();
 
     QVector<QVector3D> surfacePoints;
     QVector3D cameraPosition;
