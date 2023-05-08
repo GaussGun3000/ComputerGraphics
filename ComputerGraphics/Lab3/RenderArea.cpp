@@ -20,7 +20,7 @@ RenderArea::RenderArea(QWidget *parent):
 
 bool RenderArea::updateSurface(float angleX, float angleY)
 {
-    this->surfacePoints = surface->interpolate(interpolationIters, interpolationIters);
+    this->surfacePoints = surface->interpolate(interpolationIters, interpolationIters, angleX, angleY);
     this->update();
 	return false;
 }

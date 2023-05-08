@@ -27,7 +27,7 @@ QVector<QVector3D> BilinearSurface::cornerPoints() const
     return m_cornerPoints;
 }
 
-QVector<QVector3D> BilinearSurface::interpolate(int numStepsU, int numStepsV) const
+QVector<QVector3D> BilinearSurface::interpolate(int numStepsU, int numStepsV, float x, float y) const
 {
     QVector<QVector3D> surfacePoints;
 
@@ -47,6 +47,33 @@ QVector<QVector3D> BilinearSurface::interpolate(int numStepsU, int numStepsV) co
         for (int j = 0; j <= numStepsV; j++) {
             float v = j / static_cast<float>(numStepsV);
             QVector3D point = (1 - u) * (1 - v) * p1 + u * (1 - v) * p2 + u * v * p3 + (1 - u) * v * p4;
+
+            // Create the rotation matrices
+            float rotationX[3][3] = {
+                {1,     0,      0},
+                {0,  cos(x),  -sin(x)},
+                {0,  sin(x),   cos(x)}
+            };
+            float rotationY[3][3] = {
+                { cos(y),  0, sin(y)},
+                {    0,  1,    0},
+                {-sin(y),  0, cos(y)}
+            };
+
+            // Multiply the point with the rotation matrices
+            point = QVector3D(
+                rotationY[0][0] * rotationX[0][0] * point.x() +
+                rotationY[0][1] * rotationX[0][1] * point.y() +
+                rotationY[0][2] * rotationX[0][2] * point.z(), 
+
+                rotationY[1][0] * rotationX[1][0] * point.x() +
+                rotationY[1][1] * rotationX[1][1] * point.y() +
+                rotationY[1][2] * rotationX[1][2] * point.z(),
+
+                rotationY[2][0] * rotationX[2][0] * point.x() +
+                rotationY[2][1] * rotationX[2][1] * point.y() +
+                rotationY[2][2] * rotationX[2][2] * point.z()); 
+
             surfacePoints.append(point);
         }
     }
