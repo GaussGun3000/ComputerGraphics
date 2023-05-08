@@ -63,6 +63,8 @@ void RenderArea::paintGL()
         glVertex3f(p.x(), p.y(), p.z());
     }
     glEnd();
+
+    paintMeshGrid();
 }
 
 
@@ -113,7 +115,48 @@ void RenderArea::paintCornerPoints()
 
 void RenderArea::paintMeshGrid()
 {
+    if (!surfacePoints.empty())
+    {
+        for (uint32_t i = 0; i < this->interpolationIters; i++)
+        {
+            for (uint32_t j = 0; j < this->interpolationIters; j++)
+            {
+                glBegin(GL_LINES);
+                QVector3D point = surfacePoints.at(i + j * (interpolationIters + 1));
+                QVector3D point2 = surfacePoints.at(i + j * (interpolationIters + 1) + 1);
+                glVertex3f(point.x(), point.y(), point.z());
+                glVertex3f(point2.x(), point2.y(), point2.z());
+                glEnd();
 
+                glBegin(GL_LINES);
+                point = surfacePoints.at(i + j * (interpolationIters + 1));
+                point2 = surfacePoints.at(i + (j + 1) * (interpolationIters + 1));
+                glVertex3f(point.x(), point.y(), point.z());
+                glVertex3f(point2.x(), point2.y(), point2.z());
+                glEnd();
+            }
+        }
+
+        // Draw lines connecting the last row of points
+        for (uint32_t i = 0; i < interpolationIters; i++) {
+            glBegin(GL_LINES);
+            QVector3D point = surfacePoints.at(i + interpolationIters * (interpolationIters + 1));
+            QVector3D point2 = surfacePoints.at(i + interpolationIters * (interpolationIters + 1) + 1);
+            glVertex3f(point.x(), point.y(), point.z());
+            glVertex3f(point2.x(), point2.y(), point2.z());
+            glEnd();
+        }
+
+        // Draw lines connecting the last column of points
+        for (uint32_t j = 0; j < interpolationIters; j++) {
+            glBegin(GL_LINES);
+            QVector3D point = surfacePoints.at(interpolationIters + j * (interpolationIters + 1));
+            QVector3D point2 = surfacePoints.at(interpolationIters + (j + 1) * (interpolationIters + 1));
+            glVertex3f(point.x(), point.y(), point.z());
+            glVertex3f(point2.x(), point2.y(), point2.z());
+            glEnd();
+        }
+    }
 }
 
 
