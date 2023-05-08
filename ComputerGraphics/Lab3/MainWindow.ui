@@ -76,7 +76,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+        <widget class="QDoubleSpinBox" name="spinBox_angleX"/>
        </item>
        <item>
         <widget class="QLabel" name="label">
@@ -99,7 +99,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+        <widget class="QDoubleSpinBox" name="spinBox_angleY"/>
        </item>
       </layout>
      </widget>

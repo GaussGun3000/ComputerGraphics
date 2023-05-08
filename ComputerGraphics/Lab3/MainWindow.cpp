@@ -25,7 +25,9 @@ QVector<QVector3D> MainWindow::getSurfaseData()
 
 void MainWindow::updateButtonClicked()
 {
-    ui.renderArea->updateSurface(0, 0);
+    float angleX = ui.spinBox_angleX->value(); 
+    float angleY = ui.spinBox_angleY->value();
+    ui.renderArea->updateSurface(angleX, angleY);
     ui.statusBar->showMessage("Surface updated");
 }
 
