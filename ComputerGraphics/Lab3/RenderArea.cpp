@@ -20,53 +20,13 @@ RenderArea::RenderArea(QWidget *parent):
 
 bool RenderArea::updateSurface(float angleX, float angleY)
 {
-    this->surfacePoints = surface->interpolate(10, 10);
+    this->surfacePoints = surface->interpolate(interpolationIters, interpolationIters);
     this->update();
 	return false;
 }
 
 void RenderArea::initializeGL()
 {
-    /*
-    initializeOpenGLFunctions();
-    glEnable(GL_DEPTH_TEST);
-
-    // Set the clear color to black
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-    // Compile the vertex shader
-    QOpenGLShader vertexShader(QOpenGLShader::Vertex);
-    vertexShader.compileSourceFile(":/shaders/simple.vert");
-
-    // Compile the fragment shader
-    QOpenGLShader fragmentShader(QOpenGLShader::Fragment);
-    fragmentShader.compileSourceFile(":/shaders/simple.frag");
-
-    // Link the shaders into a shader program
-    m_shaderProgram = new QOpenGLShaderProgram();
-    m_shaderProgram->addShader(&vertexShader);
-    m_shaderProgram->addShader(&fragmentShader);
-    m_shaderProgram->link();
-
-    // Create a VAO
-    m_vao = new QOpenGLVertexArrayObject();
-    m_vao->create();
-    m_vao->bind();
-
-    // Create a VBO for vertex data
-    m_vbo = new QOpenGLBuffer(QOpenGLBuffer::VertexBuffer);
-    m_vbo->create();
-    m_vbo->bind();
-    m_vbo->setUsagePattern(QOpenGLBuffer::StaticDraw);
-
-    // Enable the vertex attribute array and specify the layout
-    m_shaderProgram->enableAttributeArray("vertexPosition");
-    m_shaderProgram->setAttributeBuffer("vertexPosition", GL_FLOAT, 0, 3, sizeof(QVector3D));
-
-    // Release the VBO and VAO
-    m_vbo->release();
-    m_vao->release();
-    */
     initializeOpenGLFunctions();
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -88,41 +48,12 @@ void RenderArea::paintGL()
 {
     // Clear the color and depth buffers
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-/*
-    if (!surfacePoints.empty())
-    {
-
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        //glUseProgram(m_shaderProgram->programId());
-        m_shaderProgram->bind();
-        // Bind the VAO
-        m_vao->bind();
-
-        // Bind the VBO and set the data
-        m_vbo->bind();
-        m_vbo->allocate(surfacePoints.constData(), surfacePoints.size() * sizeof(QVector3D));
-
-        // Draw the surface
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, surfacePoints.size());
-
-        // Release the VBO and VAO
-        m_vbo->release();
-        m_vao->release();
-    }
- */
-
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     paintAxis();
     paintCornerPoints();
 
     glColor3f(1.0, 1.0, 1.0); // White
-    //glBindTexture(GL_TEXTURE_2D, textureId);
 
-    // Define the vertices and texture coordinates
-
-    // Draw the surface
     glBegin(GL_POINTS);
 
     glVertex3f(1.f, 1.f, 1.f);
@@ -137,6 +68,7 @@ void RenderArea::paintGL()
 
 void RenderArea::resizeGL(int width, int height)
 {
+    this->update();
 }
 
 void RenderArea::paintAxis()
@@ -179,5 +111,9 @@ void RenderArea::paintCornerPoints()
     glPointSize(1.0f);
 }
 
+void RenderArea::paintMeshGrid()
+{
+
+}
 
 

@@ -29,6 +29,9 @@ protected:
 private:
     void paintAxis();
     void paintCornerPoints();
+    void paintMeshGrid();
+
+    const uint32_t interpolationIters = 10;
 
     QVector<QVector3D> surfacePoints;
     QVector3D cameraPosition;
