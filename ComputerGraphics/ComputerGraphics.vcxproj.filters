@@ -26,9 +26,6 @@
     <QtUic Include="Lab3\MainWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="InputWindow.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="Lab3\InputWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>

@@ -14,7 +14,7 @@ void InputWindow::saveButtonClicked()
 {
     MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
     QVector<QVector3D> points;
-    
+
     points.reserve(4);
 
     points.append(QVector3D(ui.spinBox_x1->value(), ui.spinBox_y1->value(), ui.spinBox_z1->value()));
