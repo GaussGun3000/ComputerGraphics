@@ -34,11 +34,6 @@ private:
     const uint32_t interpolationIters = 10;
 
     QVector<QVector3D> surfacePoints;
-    QVector3D cameraPosition;
-    QOpenGLShaderProgram* m_shaderProgram;
-    QOpenGLBuffer* m_vbo;
-    QOpenGLVertexArrayObject* m_vao;
-    float cameraDistance;
     float m_angleX;
     float m_angleY;
 };

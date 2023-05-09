@@ -20,7 +20,8 @@ RenderArea::RenderArea(QWidget *parent):
 
 bool RenderArea::updateSurface(float angleX, float angleY)
 {
-    this->surfacePoints = surface->interpolate(interpolationIters, interpolationIters, angleX, angleY);
+    if (!surface->cornerPoints().empty()) 
+        this->surfacePoints = surface->interpolate(interpolationIters, interpolationIters, angleX, angleY);
     this->update();
 	return false;
 }
@@ -107,6 +108,16 @@ void RenderArea::paintCornerPoints()
     for (const QVector3D& point : points)
         glVertex3f(point.x(), point.y(), point.z()); // draw point
     glEnd();
+
+    if (surface->isRotated())
+    {
+        glColor3f(1.f, 0.0f, 1.f); // set color to Blue
+        glBegin(GL_POINTS);
+        points = surface->cornerPointsRotated();
+        for (const QVector3D& point : points)
+            glVertex3f(point.x(), point.y(), point.z()); // draw point
+        glEnd();
+    }
 
     // reset color and point size to defaults
     glColor3f(1.0f, 1.0f, 1.0f);
