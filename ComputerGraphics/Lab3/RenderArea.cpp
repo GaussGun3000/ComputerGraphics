@@ -29,7 +29,7 @@ bool RenderArea::updateSurface(float angleX, float angleY)
 void RenderArea::initializeGL()
 {
     initializeOpenGLFunctions();
-    glEnable(GL_DEPTH_TEST);
+    
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -42,7 +42,8 @@ void RenderArea::initializeGL()
     gluLookAt(1.0f, 1.0f, 1.0f, // Camera position (x, y, z)
         0.0f, 0.0f, 0.0f,  // Look at point (x, y, z)
         0.0f, 0.0f, 1.0f); // Up vector (x, y, z)
-
+    
+    glEnable(GL_DEPTH_TEST);
 }
 
 void RenderArea::paintGL()

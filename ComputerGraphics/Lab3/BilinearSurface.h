@@ -2,14 +2,12 @@
 
 #include <QObject>
 #include <QVector>
-#include <QOpenGLFunctions>
 #include <QVector3D>
 
-class BilinearSurface : protected QOpenGLFunctions
+class BilinearSurface
 {
 public:
     explicit BilinearSurface();
-    virtual ~BilinearSurface();
 
     void setCornerPoints(const QVector<QVector3D>& points);
     QVector<QVector3D> cornerPoints() const;
