@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Lab4\CohenSutherland.cpp" />
     <ClCompile Include="Lab4\InputWindow.cpp" />
     <ClCompile Include="Lab4\main.cpp" />
     <ClCompile Include="Lab4\MainWindow.cpp" />
@@ -31,6 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Lab4\InputWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lab4\CohenSutherland.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E345B6DA-F5DA-476B-A5C6-82E18579E537}</ProjectGuid>
