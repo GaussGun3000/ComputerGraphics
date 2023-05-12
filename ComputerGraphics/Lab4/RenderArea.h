@@ -1,33 +1,25 @@
 #pragma once
+#include <qwidget.h>
+#include <qpainter.h>
+#include <Qvector.h>
 
-#include <QWidget>
-#include <QVector>
-#include <QVector3D>
-#include <QScopedPointer>
-#include <QOpenGLWidget>
-#include <QOpenGLFunctions>
-#include <QOpenGLShaderProgram>
-#include <QOpenGLBuffer>
-#include <QOpenGLVertexArrayObject>
-
-class RenderArea : public QOpenGLWidget, public QOpenGLFunctions
+class RenderArea :
+    public QWidget
 {
     Q_OBJECT
 
 public:
-    RenderArea(QWidget* parent = nullptr);
-    bool updateSurface(float angleX, float angleY);
+    RenderArea(QWidget* parent);
+
+    QPoint getOffset();
 
 protected:
-    void initializeGL() override;
-    void paintGL() override;
-    void resizeGL(int width, int height) override;
+    void paintEvent(QPaintEvent* event) override;
 
 private:
-    void paintAxis();
-    void paintCornerPoints();
+    //methods
+    void drawAxes(QPainter* painter, QPoint offset);
 
-    const uint32_t interpolationIters = 10;
-
+    //fields
 };
 
