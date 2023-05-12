@@ -9,6 +9,12 @@ RenderArea::RenderArea(QWidget* parent)
 
 }
 
+bool RenderArea::updateSetup()
+{
+
+	return false;
+}
+
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 {

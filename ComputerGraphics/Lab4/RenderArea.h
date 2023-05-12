@@ -10,6 +10,7 @@ class RenderArea :
 
 public:
     RenderArea(QWidget* parent);
+    bool updateSetup();
 
     QPoint getOffset();
 
