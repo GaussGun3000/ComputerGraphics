@@ -14,11 +14,14 @@ public:
 	QRect getRectangle();
 	QVector<uint32_t> getSegmentGeneratorParams();
 	void lineSegmentsGenerator();
+
+	QPointF computeIntersection(const QLineF& line, int outcode);
+	
 	QVector<QLineF> clipLines();
 
 private:
 	//methods
-	uint32_t computeOutCode(const QPoint& point);
+	uint32_t computeOutcode(const QPointF& point);
 
 	//fields
 	uint32_t generatorLineCount;
@@ -28,5 +31,9 @@ private:
 	QVector<QLineF> lineSegments;
 	QVector<QLineF> clippedLines; 
 	QPoint border;
-	
+
+	const uint32_t Top = 0b1000;
+	const uint32_t Bottom = 0b0100;
+	const uint32_t Right = 0b0010;
+	const uint32_t Left = 0b0001;
 };

@@ -4,9 +4,10 @@
 
 CohenSutherland::CohenSutherland()
 {
+    border = QPoint(100, 100);
     window = QRect(-30, -30, 30, 30);
-    lineSegments = QVector<QLine>();
-    clippedLines = QVector<QLine>();
+    lineSegments = QVector<QLineF>();
+    clippedLines = QVector<QLineF>();
 }
 
 void CohenSutherland::setSegmentGeneratorParams(uint32_t lineCount, uint32_t maxlen)
@@ -59,12 +60,92 @@ void CohenSutherland::lineSegmentsGenerator()
     }
 }
 
-QVector<QLineF> CohenSutherland::clipLines()
+QPointF CohenSutherland::computeIntersection(const QLineF& line, int outcode)
 {
-    return QVector<QLineF>();
+    qreal x, y;
+
+    if (outcode & Top)
+    {
+        x = line.x1() + (line.x2() - line.x1()) * (window.top() - line.y1()) / (line.y2() - line.y1());
+        y = window.top();
+    }
+    else if (outcode & Bottom)
+    {
+        x = line.x1() + (line.x2() - line.x1()) * (window.bottom() - line.y1()) / (line.y2() - line.y1());
+        y = window.bottom();
+    }
+    else if (outcode & Right)
+    {
+        y = line.y1() + (line.y2() - line.y1()) * (window.right() - line.x1()) / (line.x2() - line.x1());
+        x = window.right();
+    }
+    else if (outcode & Left)
+    {
+        y = line.y1() + (line.y2() - line.y1()) * (window.left() - line.x1()) / (line.x2() - line.x1());
+        x = window.left();
+    }
+
+    return QPointF(x, y);
 }
 
-uint32_t CohenSutherland::computeOutCode(const QPoint& point)
+QVector<QLineF> CohenSutherland::clipLines()
+{
+    QVector<QLineF> clippedLines;
+    clippedLines.reserve(lineSegments.size());
+    for (const auto& l : lineSegments)
+    {
+        QLineF line(l);
+        // Calculate the outcodes for the endpoints of the line segment
+        int startOutcode = computeOutcode(line.p1());
+        int endOutcode = computeOutcode(line.p2());
+
+        while (true)
+        {
+            // If both endpoints are inside the window, add the original line segment to the list of clipped lines and exit the loop
+            if (!(startOutcode | endOutcode))
+            {
+                clippedLines.append(line);
+                break;
+            }
+
+            // If the line segment is outside the window, discard it and exit the loop
+            if (startOutcode & endOutcode)
+            {
+                break;
+            }
+
+            // Calculate the endpoint to be clipped and its outcode
+            QPointF clippedPoint;
+            int clippedOutcode;
+            if (startOutcode)
+            {
+                clippedOutcode = startOutcode;
+                clippedPoint = computeIntersection(line, startOutcode);
+            }
+            else
+            {
+                clippedOutcode = endOutcode;
+                clippedPoint = computeIntersection(line, endOutcode);
+            }
+
+            // Update the endpoint with the clipped endpoint
+            if (clippedOutcode == startOutcode)
+            {
+                line.setP1(clippedPoint);
+                startOutcode = computeOutcode(clippedPoint);
+            }
+            else
+            {
+                line.setP2(clippedPoint);
+                endOutcode = computeOutcode(clippedPoint);
+            }
+        }
+    }
+
+    return clippedLines;
+}
+
+uint32_t CohenSutherland::computeOutcode(const QPointF& point)
 {
     int outcode = 0;
 
