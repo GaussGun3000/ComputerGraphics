@@ -13,26 +13,19 @@ QDialog(parent)
 void InputWindow::saveButtonClicked()
 {
     MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
-    QRect rectanle = QRect( QPoint(ui.spinBox_x1->value(), ui.spinBox_y1->value()),
-                            QPoint(ui.spinBox_x2->value(), ui.spinBox_y2->value()) );
-    
-    
+    QPoint upperLeft = QPoint(ui.spinBox_x1->value(), ui.spinBox_y1->value());
+    QPoint lowerRight = QPoint(ui.spinBox_x2->value(), ui.spinBox_y2->value());
+    mainWindow->saveInputData(upperLeft, lowerRight);
 }
 
 void InputWindow::fillOldValues()
 {
-
 }
 
 void InputWindow::randomButtonClicked()
 {
-    uint32_t segNumber = ui.spinBox_segmentsNumber->value();
+    MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
+    uint32_t segNumber = ui.spinBox_segNumber->value();
     uint32_t maxLength = ui.spinBox_maxLength->value();
-    maxLength *= 100;
-    QVector<QLine> segments;
-    for (int i = 0; i < segNumber; i++)
-    {
-        //segments.append();
-    }
-
+    mainWindow->generateSegments(segNumber, maxLength);
 }
