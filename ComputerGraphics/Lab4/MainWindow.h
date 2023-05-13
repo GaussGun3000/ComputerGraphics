@@ -13,8 +13,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void saveInputData(QVector<QVector3D>& points);
-    QVector <QVector3D> getSurfaseData();
+    void saveInputData(QPoint& upperLeft, QPoint& lowerRight);
+    void generateSegments(uint32_t lineCount, uint32_t maxlen);
+    QScopedPointer<CohenSutherland>& getRectData();
 
 public slots:
     void updateButtonClicked();

@@ -11,15 +11,26 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {}
 
-void MainWindow::saveInputData(QVector<QVector3D>& points)
+void MainWindow::saveInputData(QPoint& upperLeft, QPoint& lowerRight)
 {
-    
+    ui.renderArea->cohenSutherland->setRectangle(upperLeft, lowerRight);
     ui.statusBar->showMessage("New reactangle was saved. Press update to render with new values");
+}
+
+void MainWindow::generateSegments(uint32_t lineCount, uint32_t maxlen)
+{
+    ui.renderArea->cohenSutherland->setSegmentGeneratorParams(lineCount, maxlen);
+    ui.renderArea->cohenSutherland->lineSegmentsGenerator();
+}
+
+QScopedPointer<CohenSutherland>& MainWindow::getRectData()
+{
+    return ui.renderArea->cohenSutherland;
 }
 
 void MainWindow::updateButtonClicked()
 {
-
+    ui.renderArea->updateSetup();
     ui.statusBar->showMessage("Updated");
 }
 

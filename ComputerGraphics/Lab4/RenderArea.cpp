@@ -4,14 +4,16 @@
 #include <QTextEdit>
 #include <QSet>
 
-RenderArea::RenderArea(QWidget* parent)
+RenderArea::RenderArea(QWidget* parent): cohenSutherland(new CohenSutherland)
 {
 
 }
 
 bool RenderArea::updateSetup()
 {
-
+	auto offset = getOffset();
+	cohenSutherland->setBorder(offset);
+	this->update();
 	return false;
 }
 
@@ -54,11 +56,9 @@ void RenderArea::paintEvent(QPaintEvent* event)
 {
 	QPainter painter(this);
 	QPoint offset = getOffset();
-
+	cohenSutherland->setBorder(offset);	
 	drawAxes(&painter, offset);
 
-	QPen splinePen(QColor("black"));
-	painter.setPen(splinePen);
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);
