@@ -9,7 +9,6 @@ class BilinearSurface : protected QOpenGLFunctions
 {
 public:
     explicit BilinearSurface();
-    virtual ~BilinearSurface();
 
     void setCornerPoints(const QVector<QVector3D>& points);
     QVector<QVector3D> cornerPoints() const;
