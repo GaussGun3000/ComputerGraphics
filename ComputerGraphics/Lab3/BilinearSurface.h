@@ -2,10 +2,9 @@
 
 #include <QObject>
 #include <QVector>
-#include <QOpenGLFunctions>
 #include <QVector3D>
 
-class BilinearSurface : protected QOpenGLFunctions
+class BilinearSurface
 {
 public:
     explicit BilinearSurface();

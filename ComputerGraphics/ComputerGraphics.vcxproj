@@ -11,28 +11,30 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="Lab3\InputWindow.ui" />
-    <QtUic Include="Lab3\MainWindow.ui" />
+    <ClCompile Include="Lab4\CohenSutherland.cpp" />
+    <ClCompile Include="Lab4\InputWindow.cpp" />
+    <ClCompile Include="Lab4\main.cpp" />
+    <ClCompile Include="Lab4\MainWindow.cpp" />
+    <ClCompile Include="Lab4\RenderArea.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="Lab3\MainWindow.qrc" />
+    <QtUic Include="Lab4\InputWindow.ui" />
+    <QtUic Include="Lab4\MainWindow.ui" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab3\BilinearSurface.cpp" />
-    <ClCompile Include="Lab3\main.cpp" />
-    <ClCompile Include="Lab3\MainWindow.cpp" />
-    <ClCompile Include="Lab3\InputWindow.cpp" />
-    <ClCompile Include="Lab3\RenderArea.cpp" />
+    <QtRcc Include="Lab4\MainWindow.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Lab3\MainWindow.h" />
+    <QtMoc Include="Lab4\RenderArea.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Lab3\RenderArea.h" />
+    <QtMoc Include="Lab4\MainWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Lab3\BilinearSurface.h" />
-    <QtMoc Include="Lab3\InputWindow.h" />
+    <QtMoc Include="Lab4\InputWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lab4\CohenSutherland.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E345B6DA-F5DA-476B-A5C6-82E18579E537}</ProjectGuid>
@@ -55,8 +57,8 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>5.15.2</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets;opengl</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
