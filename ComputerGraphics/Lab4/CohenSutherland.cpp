@@ -1,4 +1,6 @@
 #include "CohenSutherland.h"
+#include <QRandomGenerator>
+#include <qdatetime.h>
 
 CohenSutherland::CohenSutherland()
 {
@@ -13,9 +15,14 @@ void CohenSutherland::setSegmentGeneratorParams(uint32_t lineCount, uint32_t max
     generatorMaxlen = maxlen;
 }
 
-void CohenSutherland::setRectangle(QPoint upperLeft, QPoint lowerRight)
+void CohenSutherland::setRectangle(QPoint& upperLeft, QPoint& lowerRight)
 {
     window = QRect(upperLeft, lowerRight);
+}
+
+void CohenSutherland::setBorder(QPoint& border)
+{
+    this->border = border;
 }
 
 QRect CohenSutherland::getRectangle()
@@ -33,11 +40,28 @@ QVector<uint32_t> CohenSutherland::getSegmentGeneratorParams()
 
 void CohenSutherland::lineSegmentsGenerator()
 {
+    uint32_t minLength;
+    lineSegments.reserve(generatorLineCount);
+
+    QRandomGenerator rng(QDateTime::currentMSecsSinceEpoch());
+
+    for (int i = 0; i < generatorLineCount; i++)
+    {
+        QPoint start(rng.bounded(-border.x(), border.x()), rng.bounded(-border.y(), border.y()));
+        QPoint end;
+        do
+        {
+            end = QPoint(rng.bounded(-border.x(), border.x()), rng.bounded(-border.y(), border.y()));
+        } while (QLineF(start, end).length() < 10);
+
+        // Create the line segment and add it to the vector of segments
+        lineSegments.append(QLineF(start, end));
+    }
 }
 
-QVector<QLine> CohenSutherland::clipLines()
+QVector<QLineF> CohenSutherland::clipLines()
 {
-    return QVector<QLine>();
+    return QVector<QLineF>();
 }
 
 uint32_t CohenSutherland::computeOutCode(const QPoint& point)

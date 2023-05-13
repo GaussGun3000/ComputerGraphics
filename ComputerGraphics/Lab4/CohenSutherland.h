@@ -9,11 +9,12 @@ class CohenSutherland
 public:
 	CohenSutherland();
 	void setSegmentGeneratorParams(uint32_t lineCount, uint32_t maxlen);
-	void setRectangle(QPoint upperLeft, QPoint lowerRight);
+	void setRectangle(QPoint& upperLeft, QPoint& lowerRight);
+	void setBorder(QPoint& border);
 	QRect getRectangle();
 	QVector<uint32_t> getSegmentGeneratorParams();
 	void lineSegmentsGenerator();
-	QVector<QLine> clipLines();
+	QVector<QLineF> clipLines();
 
 private:
 	//methods
@@ -24,7 +25,8 @@ private:
 	uint32_t generatorMaxlen;
 
 	QRect window;
-	QVector<QLine> lineSegments;
-	QVector<QLine> clippedLines;
+	QVector<QLineF> lineSegments;
+	QVector<QLineF> clippedLines; 
+	QPoint border;
 	
 };
