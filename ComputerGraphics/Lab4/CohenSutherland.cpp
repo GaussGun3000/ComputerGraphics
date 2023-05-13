@@ -7,9 +7,37 @@ CohenSutherland::CohenSutherland()
     clippedLines = QVector<QLine>();
 }
 
+void CohenSutherland::setSegmentGeneratorParams(uint32_t lineCount, uint32_t maxlen)
+{
+    generatorLineCount = lineCount;
+    generatorMaxlen = maxlen;
+}
+
 void CohenSutherland::setRectangle(QPoint upperLeft, QPoint lowerRight)
 {
     window = QRect(upperLeft, lowerRight);
+}
+
+QRect CohenSutherland::getRectangle()
+{
+    return window;
+}
+
+QVector<uint32_t> CohenSutherland::getSegmentGeneratorParams()
+{
+    QVector<uint32_t> genParams;
+    genParams.append(generatorLineCount);
+    genParams.append(generatorMaxlen);
+    return genParams;
+}
+
+void CohenSutherland::lineSegmentsGenerator()
+{
+}
+
+QVector<QLine> CohenSutherland::clipLines()
+{
+    return QVector<QLine>();
 }
 
 uint32_t CohenSutherland::computeOutCode(const QPoint& point)
