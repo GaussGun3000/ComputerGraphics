@@ -180,7 +180,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox_segmentsNumber">
+          <widget class="QSpinBox" name="spinBox_segNumber">
            <property name="minimum">
             <number>1</number>
            </property>
