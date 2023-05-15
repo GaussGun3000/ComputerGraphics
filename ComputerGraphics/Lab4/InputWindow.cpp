@@ -28,6 +28,8 @@ void InputWindow::fillOldValues()
         ui.spinBox_y1->setValue(cohSuthPtr->getRectangle().topLeft().y());
         ui.spinBox_x2->setValue(cohSuthPtr->getRectangle().bottomRight().x());
         ui.spinBox_y2->setValue(cohSuthPtr->getRectangle().bottomRight().y());
+        ui.spinBox_segNumber->setValue(cohSuthPtr->getSegmentGeneratorParams()[0]);
+        ui.spinBox_maxLength->setValue(cohSuthPtr->getSegmentGeneratorParams()[1]);
     }
 }
 
