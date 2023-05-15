@@ -15,7 +15,7 @@ public:
     ~MainWindow();
     void saveInputData(QPoint& upperLeft, QPoint& lowerRight);
     void generateSegments(uint32_t lineCount, uint32_t maxlen);
-    QScopedPointer<CohenSutherland>& getRectData();
+    QScopedPointer<CohenSutherland>& getCohenSutherland();
 
 public slots:
     void updateButtonClicked();

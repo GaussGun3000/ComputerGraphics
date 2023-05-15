@@ -23,7 +23,7 @@ void MainWindow::generateSegments(uint32_t lineCount, uint32_t maxlen)
     ui.renderArea->cohenSutherland->lineSegmentsGenerator();
 }
 
-QScopedPointer<CohenSutherland>& MainWindow::getRectData()
+QScopedPointer<CohenSutherland>& MainWindow::getCohenSutherland()
 {
     return ui.renderArea->cohenSutherland;
 }
@@ -33,7 +33,6 @@ void MainWindow::updateButtonClicked()
     ui.renderArea->updateSetup();
     ui.statusBar->showMessage("Updated");
 }
-
 
 void MainWindow::inputButtonClicked()
 {
