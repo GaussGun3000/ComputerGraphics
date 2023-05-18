@@ -19,6 +19,8 @@ public:
 	
 	QVector<QLineF> clipLines();
 
+	QVector<QLineF>& getUnclippedLines();
+
 private:
 	//methods
 	uint32_t computeOutcode(const QPointF& point);

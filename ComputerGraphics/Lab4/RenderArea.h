@@ -18,6 +18,8 @@ public:
 
     QScopedPointer<CohenSutherland> cohenSutherland;
 
+    void drawRectangle(QPainter* painter, QPoint& offset);
+
 protected:
     void paintEvent(QPaintEvent* event) override;
 
@@ -27,5 +29,7 @@ private:
     const QPen segmentPen = QPen(QColor("black"));
     const QPen clippedSegmentPen = QPen(QColor("blue"));
     //fields
+    QPen clippedLinesPen;
+    QPen originalLinesPen;
 };
 

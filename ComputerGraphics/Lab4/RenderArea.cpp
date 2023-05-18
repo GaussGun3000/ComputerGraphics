@@ -6,7 +6,8 @@
 
 RenderArea::RenderArea(QWidget* parent): cohenSutherland(new CohenSutherland)
 {
-
+	clippedLinesPen = QPen(Qt::red);
+	originalLinesPen = QPen(Qt::black);
 }
 
 bool RenderArea::updateSetup()
@@ -16,7 +17,6 @@ bool RenderArea::updateSetup()
 	this->update();
 	return false;
 }
-
 
 void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 {
@@ -51,14 +51,13 @@ void RenderArea::drawAxes(QPainter* painter, QPoint offset)
 	}
 }
 
-
 void RenderArea::paintEvent(QPaintEvent* event)
 {
 	QPainter painter(this);
 	QPoint offset = getOffset();
 	cohenSutherland->setBorder(offset);	
 	drawAxes(&painter, offset);
-
+	drawRectangle(&painter, offset);
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);
@@ -73,5 +72,13 @@ QPoint RenderArea::getOffset()
 */
 {
 	return QPoint(this->width() / 2, this->height() / 2);
+}
+
+void RenderArea::drawRectangle(QPainter* painter, QPoint& offset)
+{
+	QPen penRect(Qt::blue);
+	penRect.setWidth(3);
+	painter->setPen(penRect);
+	painter->drawRect(this->cohenSutherland->getRectangle());
 }
 

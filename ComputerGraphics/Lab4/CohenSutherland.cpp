@@ -145,6 +145,11 @@ QVector<QLineF> CohenSutherland::clipLines()
     return clippedLines;
 }
 
+QVector<QLineF>& CohenSutherland::getUnclippedLines()
+{
+    return lineSegments;
+}
+
 uint32_t CohenSutherland::computeOutcode(const QPointF& point)
 {
     int outcode = 0;
