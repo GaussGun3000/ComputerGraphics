@@ -79,6 +79,7 @@ void RenderArea::drawRectangle(QPainter* painter, QPoint& offset)
 	QPen penRect(Qt::blue);
 	penRect.setWidth(3);
 	painter->setPen(penRect);
-	painter->drawRect(this->cohenSutherland->getRectangle());
+	QRect rect = this->cohenSutherland->getRectangle();
+	painter->drawRect(QRect(rect.topRight() + getOffset(), rect.bottomLeft() + getOffset()));
 }
 
