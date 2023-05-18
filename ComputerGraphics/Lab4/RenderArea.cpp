@@ -6,7 +6,7 @@
 
 RenderArea::RenderArea(QWidget* parent): cohenSutherland(new CohenSutherland)
 {
-	clippedLinesPen = QPen(Qt::red);
+	clippedLinesPen = QPen(Qt::red, 3);
 	originalLinesPen = QPen(Qt::black);
 }
 
@@ -58,6 +58,8 @@ void RenderArea::paintEvent(QPaintEvent* event)
 	cohenSutherland->setBorder(offset);	
 	drawAxes(&painter, offset);
 	drawRectangle(&painter, offset);
+	drawLines(&painter, offset);
+	drawClippedLines(&painter, offset);
 
 	QPen penPoint(QColor("red"));
 	penPoint.setWidth(3);
@@ -77,9 +79,37 @@ QPoint RenderArea::getOffset()
 void RenderArea::drawRectangle(QPainter* painter, QPoint& offset)
 {
 	QPen penRect(Qt::blue);
-	penRect.setWidth(3);
+	penRect.setWidth(2);
 	painter->setPen(penRect);
 	QRect rect = this->cohenSutherland->getRectangle();
-	painter->drawRect(QRect(rect.topRight() + getOffset(), rect.bottomLeft() + getOffset()));
+	painter->drawRect(QRect(rect.topLeft() + getOffset(), rect.bottomRight() + getOffset()));
+}
+
+void RenderArea::drawLines(QPainter* painter, QPoint& offset)
+{
+	painter->setPen(originalLinesPen);
+	if (!this->cohenSutherland->getUnclippedLines().isEmpty())
+	{
+		QVector<QLineF> lines = this->cohenSutherland->getUnclippedLines();
+		for (int i = 0; i < lines.size(); i++)
+		{
+			painter->drawLine(
+				QLineF(QPointF(lines[i].p1() + getOffset()), QPointF(lines[i].p2() + getOffset())));
+		}
+	}
+}
+
+void RenderArea::drawClippedLines(QPainter* painter, QPoint& offset)
+{
+	painter->setPen(clippedLinesPen);
+	if (!this->cohenSutherland->clipLines().isEmpty()) 
+	{
+		QVector<QLineF> lines = this->cohenSutherland->clipLines();
+		for (int i = 0; i < lines.size(); i++)
+		{
+			painter->drawLine(
+				QLineF(QPointF(lines[i].p1() + getOffset()), QPointF(lines[i].p2() + getOffset())));
+		}
+	}
 }
 

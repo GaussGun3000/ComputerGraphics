@@ -5,7 +5,7 @@
 CohenSutherland::CohenSutherland()
 {
     border = QPoint(100, 100);
-    window = QRect(-30, -30, 30, 30);
+    window = QRect(-50, 50, 50, -50);
     lineSegments = QVector<QLineF>();
     clippedLines = QVector<QLineF>();
 }
