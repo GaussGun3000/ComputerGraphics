@@ -6,7 +6,7 @@
 
 RenderArea::RenderArea(QWidget* parent): cohenSutherland(new CohenSutherland)
 {
-	clippedLinesPen = QPen(Qt::red, 3);
+	clippedLinesPen = QPen(Qt::red, 2);
 	originalLinesPen = QPen(Qt::black);
 }
 
@@ -102,13 +102,13 @@ void RenderArea::drawLines(QPainter* painter, QPoint& offset)
 void RenderArea::drawClippedLines(QPainter* painter, QPoint& offset)
 {
 	painter->setPen(clippedLinesPen);
-	if (!this->cohenSutherland->clipLines().isEmpty()) 
+	if (!this->cohenSutherland->getUnclippedLines().empty()) 
 	{
 		QVector<QLineF> lines = this->cohenSutherland->clipLines();
-		for (int i = 0; i < lines.size(); i++)
+		for (auto line: lines)
 		{
 			painter->drawLine(
-				QLineF(QPointF(lines[i].p1() + getOffset()), QPointF(lines[i].p2() + getOffset())));
+				QLineF(QPointF(line.p1() + getOffset()), QPointF(line.p2() + getOffset())));
 		}
 	}
 }

@@ -300,34 +300,34 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>InputWindow</receiver>
-   <slot>randomButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>189</x>
-     <y>298</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>43</x>
-     <y>315</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_2</sender>
    <signal>clicked()</signal>
    <receiver>InputWindow</receiver>
    <slot>saveButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>300</x>
-     <y>291</y>
+     <x>349</x>
+     <y>326</y>
     </hint>
     <hint type="destinationlabel">
      <x>419</x>
      <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>InputWindow</receiver>
+   <slot>randomButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>344</y>
     </hint>
    </hints>
   </connection>

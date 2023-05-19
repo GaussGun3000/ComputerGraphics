@@ -24,10 +24,10 @@ void InputWindow::fillOldValues()
     auto& cohSuthPtr = mainWindow->getCohenSutherland();
     if (!cohSuthPtr.isNull())
     {
-        ui.spinBox_x1->setValue(cohSuthPtr->getRectangle().topLeft().x());
-        ui.spinBox_y1->setValue(cohSuthPtr->getRectangle().topLeft().y());
-        ui.spinBox_x2->setValue(cohSuthPtr->getRectangle().bottomRight().x());
-        ui.spinBox_y2->setValue(cohSuthPtr->getRectangle().bottomRight().y());
+        ui.spinBox_x1->setValue(cohSuthPtr->getRectangle().topRight().x());
+        ui.spinBox_y1->setValue(cohSuthPtr->getRectangle().topRight().y());
+        ui.spinBox_x2->setValue(cohSuthPtr->getRectangle().bottomLeft().x());
+        ui.spinBox_y2->setValue(cohSuthPtr->getRectangle().bottomLeft().y());
         ui.spinBox_segNumber->setValue(cohSuthPtr->getSegmentGeneratorParams()[0]);
         ui.spinBox_maxLength->setValue(cohSuthPtr->getSegmentGeneratorParams()[1]);
     }
