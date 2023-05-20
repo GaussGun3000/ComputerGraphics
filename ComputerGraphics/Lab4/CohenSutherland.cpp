@@ -6,6 +6,8 @@ CohenSutherland::CohenSutherland()
 {
     border = QPoint(100, 100);
     window = QRect(QPoint(50, 50), QPoint(- 50, -50));
+    generatorLineCount = 10;
+    generatorMaxlen = 100;
     lineSegments = QVector<QLineF>();
     clippedLines = QVector<QLineF>();
 }
@@ -41,7 +43,6 @@ QVector<uint32_t> CohenSutherland::getSegmentGeneratorParams()
 
 void CohenSutherland::lineSegmentsGenerator()
 {
-    uint32_t minLength;
     lineSegments.clear();
     lineSegments.reserve(generatorLineCount);
 
