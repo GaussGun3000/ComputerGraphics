@@ -14,6 +14,8 @@
     <ClCompile Include="Lab5\InputWindow.cpp" />
     <ClCompile Include="Lab5\main.cpp" />
     <ClCompile Include="Lab5\MainWindow.cpp" />
+    <ClCompile Include="Lab5\Polyhedron.cpp" />
+    <ClCompile Include="Lab5\PolyhedronSort.cpp" />
     <ClCompile Include="Lab5\RenderArea.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +33,10 @@
   <ItemGroup>
     <QtUic Include="Lab5\InputWindow.ui" />
     <QtUic Include="Lab5\MainWindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lab5\Polyhedron.h" />
+    <ClInclude Include="Lab5\PolyhedronSort.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E345B6DA-F5DA-476B-A5C6-82E18579E537}</ProjectGuid>
