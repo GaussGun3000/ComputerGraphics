@@ -102,14 +102,12 @@ void RenderArea::drawLines(QPainter* painter, QPoint& offset)
 void RenderArea::drawClippedLines(QPainter* painter, QPoint& offset)
 {
 	painter->setPen(clippedLinesPen);
-	if (!this->cohenSutherland->getUnclippedLines().empty()) 
+	QVector<QLineF> lines = this->cohenSutherland->clipLines();
+	for (const auto& line: lines)
 	{
-		QVector<QLineF> lines = this->cohenSutherland->clipLines();
-		for (auto line: lines)
-		{
-			painter->drawLine(
-				QLineF(QPointF(line.p1() + getOffset()), QPointF(line.p2() + getOffset())));
-		}
+		painter->drawLine(
+			QLineF(QPointF(line.p1() + getOffset()), QPointF(line.p2() + getOffset())));
+		
 	}
 }
 

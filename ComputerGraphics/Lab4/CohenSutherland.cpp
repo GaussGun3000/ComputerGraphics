@@ -93,7 +93,7 @@ QPointF CohenSutherland::computeIntersection(const QLineF& line, int outcode)
 QVector<QLineF> CohenSutherland::clipLines()
 {
     QVector<QLineF> clippedLines;
-    clippedLines.reserve(lineSegments.size());
+   
     for (const auto& l : lineSegments)
     {
         QLineF line(l);
