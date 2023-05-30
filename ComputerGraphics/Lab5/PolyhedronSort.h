@@ -27,14 +27,14 @@ public:
 	};
 
 	PolyhedronSort(PolyhedronGeneratorSettings& settings);
-	QScopedPointer<QVector<Triangle>> sortFacesByZ();
+	QVector<Triangle> sortFacesByZ();
 	void setGeneratorSettings(PolyhedronGeneratorSettings& settings);
 	PolyhedronGeneratorSettings& getGeneratorSettings();
 
 
 private:
 	//fields
-	QVector<QScopedPointer<Polyhedron>> polyhedrons;
+	QVector<QScopedPointer<Polyhedron>> polyhedronVector;
 	PolyhedronGeneratorSettings generatorSettings;
 	//methods
 	void generatePolyhedrons();
