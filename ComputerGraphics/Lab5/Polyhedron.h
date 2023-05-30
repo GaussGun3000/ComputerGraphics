@@ -1,4 +1,4 @@
-#include <cstdint>
+#pragma once
 #include <qvector.h>
 #include <qvector3d.h>
 
@@ -12,6 +12,7 @@ public:
 		QVector<uint32_t> vertexIndices;
 	};
 	Polyhedron();
+	Polyhedron(uint32_t max_vertices, uint32_t max_faces, uint32_t min_vertices, uint32_t min_faces);
 	QVector<QVector3D>& getVertices();
 	QVector<Face>& getFaces();
 

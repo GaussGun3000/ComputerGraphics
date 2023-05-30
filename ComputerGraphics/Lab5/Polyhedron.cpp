@@ -10,6 +10,11 @@ Polyhedron::Polyhedron()
     random(6, 6, 5, 5);
 }
 
+Polyhedron::Polyhedron(uint32_t max_vertices, uint32_t max_faces, uint32_t min_vertices, uint32_t min_faces)
+{
+    random(max_vertices, max_faces, max_vertices, min_faces);
+}
+
 QVector<QVector3D>& Polyhedron::getVertices()
 {
     return vertices;
