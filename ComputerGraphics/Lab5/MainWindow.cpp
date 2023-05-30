@@ -11,15 +11,16 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {}
 
-void MainWindow::saveInputData(QPoint& upperLeft, QPoint& lowerRight)
+void MainWindow::saveInputData(uint32_t& polyhedronCount, uint32_t& vMin, uint32_t& vMax, uint32_t& eMin, uint32_t& eMax)
 {
-    ui.statusBar->showMessage("New reactangle was saved. Press update to render with new values");
+    ui.statusBar->showMessage("Polyhedron parameters were saved. Press update to render with new values");
 }
 
-void MainWindow::generateSegments(uint32_t lineCount, uint32_t maxlen)
+void MainWindow::generatePolyhedrons()
 {
-
 }
+
+
 
 
 
