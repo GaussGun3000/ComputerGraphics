@@ -20,10 +20,6 @@ void MainWindow::generatePolyhedrons()
 {
 }
 
-
-
-
-
 void MainWindow::updateButtonClicked()
 {
 
