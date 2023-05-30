@@ -11,6 +11,8 @@ public:
 public slots:
     void randomButtonClicked();
     void saveButtonClicked();
+    void eMaxSpinBoxValueChanged();
+    void eMinSpinBoxValueChanged();
 
 private:
     void fillOldValues();
