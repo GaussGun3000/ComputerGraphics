@@ -13,9 +13,13 @@ QDialog(parent)
 void InputWindow::saveButtonClicked()
 {
     MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
-    QPoint upperLeft = QPoint(ui.spinBox_x1->value(), ui.spinBox_y1->value());
-    QPoint lowerRight = QPoint(ui.spinBox_x2->value(), ui.spinBox_y2->value());
-    mainWindow->saveInputData(upperLeft, lowerRight);
+    uint32_t polyhedronCount = ui.spinBox_polyCount->value();
+    uint32_t vMin = ui.spinBox_vMin->value();
+    uint32_t vMax = ui.spinBox_vMax->value();
+    uint32_t eMin = ui.spinBox_eMin->value();
+    uint32_t eMax = ui.spinBox_eMax->value();
+
+    mainWindow->saveInputData(polyhedronCount, vMin, vMax, eMin, eMax);
 }
 
 void InputWindow::fillOldValues()
@@ -26,7 +30,6 @@ void InputWindow::fillOldValues()
 void InputWindow::randomButtonClicked()
 {
     MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
-    uint32_t segNumber = ui.spinBox_segNumber->value();
-    uint32_t maxLength = ui.spinBox_maxLength->value();
-    mainWindow->generateSegments(segNumber, maxLength);
+    
+    mainWindow->generatePolyhedrons();
 }
