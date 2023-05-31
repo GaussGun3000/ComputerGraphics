@@ -16,8 +16,6 @@ RenderArea::RenderArea(QWidget *parent): polyhedronSort(new PolyhedronSort)
 
 bool RenderArea::updateScene()
 {
-    auto pgs = PolyhedronSort::PolyhedronGeneratorSettings();
-    polyhedronSort->setGeneratorSettings(pgs);
     this->update();
 	return false;
 }
