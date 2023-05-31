@@ -226,8 +226,8 @@
    <slot>saveButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>349</x>
-     <y>326</y>
+     <x>271</x>
+     <y>327</y>
     </hint>
     <hint type="destinationlabel">
      <x>419</x>
@@ -239,7 +239,7 @@
    <sender>spinBox_fMax</sender>
    <signal>valueChanged(int)</signal>
    <receiver>InputWindow</receiver>
-   <slot>eMaxSpinBoxValueChanged()</slot>
+   <slot>fMaxSpinBoxValueChanged()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>193</x>
@@ -255,7 +255,7 @@
    <sender>spinBox_fMin</sender>
    <signal>valueChanged(int)</signal>
    <receiver>InputWindow</receiver>
-   <slot>eMinSpinBoxValueChanged()</slot>
+   <slot>fMinSpinBoxValueChanged()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>166</x>
@@ -271,7 +271,7 @@
  <slots>
   <slot>randomButtonClicked()</slot>
   <slot>saveButtonClicked()</slot>
-  <slot>eMaxSpinBoxValueChanged()</slot>
-  <slot>eMinSpinBoxValueChanged()</slot>
+  <slot>fMaxSpinBoxValueChanged()</slot>
+  <slot>fMinSpinBoxValueChanged()</slot>
  </slots>
 </ui>
