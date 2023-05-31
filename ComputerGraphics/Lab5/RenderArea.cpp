@@ -29,7 +29,9 @@ void RenderArea::initializeGL()
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0f, static_cast<GLfloat>(width()) / static_cast<GLfloat>(height()), 0.1f, 100.0f);
+    gluPerspective(45.0f, // FOV
+                   static_cast<GLfloat>(width()) / static_cast<GLfloat>(height()), // aspectRatio
+                   0.1f, 100.0f); // distances to near and far clipping planes
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
