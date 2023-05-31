@@ -22,6 +22,16 @@ bool RenderArea::updateScene()
 	return false;
 }
 
+void RenderArea::setAlgorithmSettings(PolyhedronSort::PolyhedronGeneratorSettings& settings)
+{
+    polyhedronSort->setGeneratorSettings(settings);
+}
+
+PolyhedronSort::PolyhedronGeneratorSettings RenderArea::getAlgorithmSettings()
+{
+    return polyhedronSort->getGeneratorSettings();
+}
+
 void RenderArea::initializeGL()
 {
     initializeOpenGLFunctions();

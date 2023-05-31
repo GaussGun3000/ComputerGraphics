@@ -11,13 +11,19 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {}
 
-void MainWindow::saveInputData(uint32_t& polyhedronCount, uint32_t& vMin, uint32_t& vMax, uint32_t& eMin, uint32_t& eMax)
+void MainWindow::saveInputData(PolyhedronSort::PolyhedronGeneratorSettings& settings)
 {
+    ui.renderArea->setAlgorithmSettings(settings);
     ui.statusBar->showMessage("Polyhedron parameters were saved. Press update to render with new values");
 }
 
 void MainWindow::generatePolyhedrons()
 {
+}
+
+PolyhedronSort::PolyhedronGeneratorSettings MainWindow::getGenSettings()
+{
+    return ui.renderArea->getAlgorithmSettings();
 }
 
 void MainWindow::updateButtonClicked()

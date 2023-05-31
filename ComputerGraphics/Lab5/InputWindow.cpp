@@ -14,13 +14,14 @@ QDialog(parent)
 void InputWindow::saveButtonClicked()
 {
     MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
-    uint32_t polyhedronCount = ui.spinBox_polyCount->value();
-    uint32_t vMin = ui.label_vMin->text().toUInt();
-    uint32_t vMax = ui.label_vMax->text().toUInt();
-    uint32_t eMin = ui.spinBox_fMin->value();
-    uint32_t eMax = ui.spinBox_fMax->value();
+    PolyhedronSort::PolyhedronGeneratorSettings settings;
+    settings.polyhedronCount = ui.spinBox_polyCount->value();
+    settings.min_vertices = ui.label_vMin->text().toUInt();
+    settings.max_vertices = ui.label_vMax->text().toUInt();
+    settings.min_faces = ui.spinBox_fMin->value();
+    settings.max_faces = ui.spinBox_fMax->value();
 
-    mainWindow->saveInputData(polyhedronCount, vMin, vMax, eMin, eMax);
+    mainWindow->saveInputData(settings);
 }
 
 void InputWindow::eMaxSpinBoxValueChanged()
@@ -43,12 +44,12 @@ void InputWindow::eMinSpinBoxValueChanged()
 
 void InputWindow::fillOldValues()
 {
-
-}
-
-void InputWindow::randomButtonClicked()
-{
     MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
-    
-    mainWindow->generatePolyhedrons();
+    auto settings = mainWindow->getGenSettings();
+    ui.spinBox_polyCount->setValue(settings.polyhedronCount);
+    ui.spinBox_fMin->setValue(settings.min_faces);
+    ui.spinBox_fMax->setValue(settings.max_faces);
+    ui.label_vMax->setText(QString::number(settings.max_vertices));
+    ui.label_vMin->setText(QString::number(settings.min_vertices));
 }
+

@@ -13,8 +13,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void saveInputData(uint32_t& polyhedronCount, uint32_t& vMin, uint32_t& vMax, uint32_t& eMin, uint32_t& eMax);
+    void saveInputData(PolyhedronSort::PolyhedronGeneratorSettings& settings);
     void generatePolyhedrons();
+    PolyhedronSort::PolyhedronGeneratorSettings getGenSettings();
 
 public slots:
     void updateButtonClicked();

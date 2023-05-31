@@ -9,7 +9,6 @@ public:
     explicit InputWindow(QWidget* parent = nullptr);
  
 public slots:
-    void randomButtonClicked();
     void saveButtonClicked();
     void eMaxSpinBoxValueChanged();
     void eMinSpinBoxValueChanged();
