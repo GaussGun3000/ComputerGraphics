@@ -37,7 +37,7 @@ void RenderArea::initializeGL()
     glLoadIdentity();
     glTranslatef(0.0f, 0.0f, -10.0f);
 
-    gluLookAt(5.0f, 5.0f, 5.0f, // Camera position (x, y, z)
+    gluLookAt(6.0f, 6.0f, 6.0f, // Camera position (x, y, z)
         0.0f, 0.0f, 0.0f,  // Look at point (x, y, z)
         0.0f, 0.0f, 1.0f); // Up vector (x, y, z)
     
@@ -68,21 +68,21 @@ void RenderArea::paintAxis()
     glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
     glVertex3f(0.0f, 0.0f, 0.0f);
-    glVertex3f(10.0f, 0.0f, 0.0f);
+    glVertex3f(15.0f, 0.0f, 0.0f);
     glEnd();
 
     // Draw the y-axis in green
     glColor3f(0.0f, 1.0f, 0.0f);
     glBegin(GL_LINES);
     glVertex3f(0.0f, 0.0f, 0.0f);
-    glVertex3f(0.0f, 10.0f, 0.0f);
+    glVertex3f(0.0f, 15.0f, 0.0f);
     glEnd();
 
     // Draw the z-axis in blue
     glColor3f(0.0f, 0.0f, 1.0f);
     glBegin(GL_LINES);
     glVertex3f(0.0f, 0.0f, 0.0f);
-    glVertex3f(0.0f, 0.0f, 10.0f);
+    glVertex3f(0.0f, 0.0f, 15.0f);
     glEnd();
 }
 
