@@ -14,7 +14,7 @@ const QVector<QColor> PolyhedronSort::colorPool =
 	QColor("purple")
 };
 
-PolyhedronSort::PolyhedronSort()
+PolyhedronSort::PolyhedronSort(): generatorSettings(PolyhedronGeneratorSettings())
 {
 }
 
