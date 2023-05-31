@@ -14,12 +14,13 @@ QDialog(parent)
 void InputWindow::saveButtonClicked()
 {
     MainWindow* mainWindow = qobject_cast<MainWindow*>(parent());
-    PolyhedronSort::PolyhedronGeneratorSettings settings;
-    settings.polyhedronCount = ui.spinBox_polyCount->value();
-    settings.min_vertices = ui.label_vMin->text().toUInt();
-    settings.max_vertices = ui.label_vMax->text().toUInt();
-    settings.min_faces = ui.spinBox_fMin->value();
-    settings.max_faces = ui.spinBox_fMax->value();
+    PolyhedronSort::PolyhedronGeneratorSettings settings(
+        ui.label_vMax->text().toUInt(),
+        ui.spinBox_fMax->value(),
+        ui.label_vMin->text().toUInt(),
+        ui.spinBox_fMin->value(),
+        ui.spinBox_polyCount->value()
+    );
 
     mainWindow->saveInputData(settings);
 }
