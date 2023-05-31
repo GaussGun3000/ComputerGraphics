@@ -27,3 +27,10 @@
 
 ![image](https://github.com/GaussGun3000/ComputerGraphics/assets/75047500/ae4dcfe5-f87a-4349-933c-b062ec9dbe45)
 
+
+## Lab 5
+Обеспечить реализацию видимости совокупности произвольных
+многогранников на основе алгоритма сортировки граней по Z координате
+
+
+![image](https://github.com/GaussGun3000/ComputerGraphics/assets/75047500/e18a26d1-4f19-4e36-8109-abcce7aff8a6)
