@@ -35,7 +35,7 @@ void InputWindow::fMaxSpinBoxValueChanged()
     }
     else if (fMax == 5)
     {
-        ui.label_vMin->setText("6");
+        ui.label_vMin->setText("5");
         ui.label_vMax->setText("6");
     }
     else
