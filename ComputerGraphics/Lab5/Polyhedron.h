@@ -7,7 +7,7 @@
 class Polyhedron
 {
 public:
-	static QVector3D border;
+	static const QVector3D border;
 	struct Face
 	{
 		QVector<uint32_t> vertexIndices;
