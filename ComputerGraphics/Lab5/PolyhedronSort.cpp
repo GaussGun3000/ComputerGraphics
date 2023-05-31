@@ -8,7 +8,10 @@ const QVector<QColor> PolyhedronSort::colorPool =
 	QColor(Qt::blue),
 	QColor(Qt::cyan),
 	QColor(Qt::magenta),
-	QColor(Qt::yellow)
+	QColor(Qt::yellow),
+	QColor("darkorange"),
+	QColor("teal"),
+	QColor("purple")
 };
 
 PolyhedronSort::PolyhedronSort()
