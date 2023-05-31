@@ -1,9 +1,10 @@
 #include <qpolygon.h>
-#include <qrandom.h>
+#include <QDateTime>
 #include "Polyhedron.h"
 
 
-QVector3D Polyhedron::border = QVector3D(8, 8, 8);
+QVector3D Polyhedron::border = QVector3D(6, 6, 6);
+QRandomGenerator Polyhedron::randomGenerator(QDateTime::currentDateTime().toTime_t());
 
 Polyhedron::Polyhedron()
 {
@@ -29,7 +30,6 @@ void Polyhedron::random(uint32_t maxVertices, uint32_t maxFaces, uint32_t minVer
 {
     this->vertices.clear();
     this->faces.clear();
-    QRandomGenerator randomGenerator;
     uint32_t numVertices = randomGenerator.bounded(minVertices, maxVertices + 1);
     uint32_t numFaces = randomGenerator.bounded(minFaces, maxFaces + 1);
 

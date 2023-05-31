@@ -6,9 +6,7 @@
 #include <QScopedPointer>
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
-#include <QOpenGLShaderProgram>
-#include <QOpenGLBuffer>
-#include <QOpenGLVertexArrayObject>
+#include "PolyhedronSort.h"
 
 class RenderArea : public QOpenGLWidget, public QOpenGLFunctions
 {
@@ -16,8 +14,9 @@ class RenderArea : public QOpenGLWidget, public QOpenGLFunctions
 
 public:
     RenderArea(QWidget* parent = nullptr);
-    bool updateSurface(float angleX, float angleY);
-
+    bool updateScene();
+    void setAlgorithmSettings(PolyhedronSort::PolyhedronGeneratorSettings& settings);
+    PolyhedronSort::PolyhedronGeneratorSettings getAlgorithmSettings();
 
 protected:
     void initializeGL() override;
@@ -26,13 +25,8 @@ protected:
 
 private:
     void paintAxis();
-    void paintCornerPoints();
-    void paintMeshGrid();
+    void paintSortedFaces();
 
-    const uint32_t interpolationIters = 10;
-
-    QVector<QVector3D> surfacePoints;
-    float m_angleX;
-    float m_angleY;
+    QScopedPointer<PolyhedronSort> polyhedronSort;
 };
 

@@ -22,7 +22,7 @@ void MainWindow::generatePolyhedrons()
 
 void MainWindow::updateButtonClicked()
 {
-
+    ui.renderArea->updateScene();
     ui.statusBar->showMessage("Updated");
 }
 

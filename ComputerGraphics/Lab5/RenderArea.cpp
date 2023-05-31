@@ -9,13 +9,16 @@
 #include <GL/glu.h>
 #include <GL/gl.h> 
 
-RenderArea::RenderArea(QWidget *parent)
+RenderArea::RenderArea(QWidget *parent): polyhedronSort(new PolyhedronSort)
 {
 
 }
 
-bool RenderArea::updateSurface(float angleX, float angleY)
+bool RenderArea::updateScene()
 {
+    auto pgs = PolyhedronSort::PolyhedronGeneratorSettings();
+    polyhedronSort->setGeneratorSettings(pgs);
+    this->update();
 	return false;
 }
 
@@ -45,11 +48,10 @@ void RenderArea::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     paintAxis();
-    paintCornerPoints();
 
     glColor3f(1.0, 1.0, 1.0); // White
 
-    paintMeshGrid();
+    paintSortedFaces();
 }
 
 
@@ -82,14 +84,23 @@ void RenderArea::paintAxis()
     glEnd();
 }
 
-void RenderArea::paintCornerPoints()
+void RenderArea::paintSortedFaces()
 {
-   
+    if (polyhedronSort->isReady())
+    {
+        auto triangles = polyhedronSort->getFacesSortedByZ();
+        glBegin(GL_TRIANGLES);
+        for (const auto& triangle : triangles)
+        {
+            glVertex3f(triangle.p1.x(), triangle.p1.y(), triangle.p1.z());
+            glVertex3f(triangle.p2.x(), triangle.p2.y(), triangle.p2.z());
+            glVertex3f(triangle.p3.x(), triangle.p3.y(), triangle.p3.z());
+        }
+        glEnd();
+    }
+
 }
 
-void RenderArea::paintMeshGrid()
-{
 
-}
 
 

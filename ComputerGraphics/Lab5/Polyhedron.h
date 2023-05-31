@@ -1,6 +1,7 @@
 #pragma once
 #include <qvector.h>
 #include <qvector3d.h>
+#include <qrandom.h>
 
 
 class Polyhedron
@@ -23,6 +24,7 @@ private:
 	bool findFace(const Face& face) const;
 
 	//fields
+	static QRandomGenerator randomGenerator;
 	QVector<QVector3D> vertices;
 	QVector<Face> faces;
 };

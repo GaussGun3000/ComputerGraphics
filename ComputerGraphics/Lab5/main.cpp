@@ -1,6 +1,6 @@
 #include "MainWindow.h"
 #include <QtWidgets/QApplication>
-
+#include "PolyhedronSort.h"
 
 int main(int argc, char *argv[])
 {

@@ -1,18 +1,33 @@
 #include "PolyhedronSort.h"
 
+
+PolyhedronSort::PolyhedronSort()
+{
+}
+
 PolyhedronSort::PolyhedronSort(PolyhedronGeneratorSettings& settings)
 {
 	generatorSettings = settings;
 	generatePolyhedrons();
 }
 
-QVector<PolyhedronSort::Triangle> PolyhedronSort::sortFacesByZ()
+QVector<PolyhedronSort::Triangle> PolyhedronSort::getFacesSortedByZ()
 {
+	QVector<Triangle> faces;
 	for (const auto& polyhedron : polyhedronVector)
 	{
-
+		auto polyhedronFaces = polyhedron->getFaces();
+		auto polyhedronVertices = polyhedron->getVertices();
+		for (const auto& face : polyhedronFaces)
+		{
+			Triangle triangle(polyhedronVertices.at(face.vertexIndices.at(0)),
+						  polyhedronVertices.at(face.vertexIndices.at(1)),
+						  polyhedronVertices.at(face.vertexIndices.at(2)));
+			faces.append(triangle);
+		}
 	}
-	return QVector<Triangle>();
+	std::sort(faces.begin(), faces.end());
+	return faces;
 }
 
 void PolyhedronSort::setGeneratorSettings(PolyhedronGeneratorSettings& settings)
@@ -26,15 +41,21 @@ PolyhedronSort::PolyhedronGeneratorSettings& PolyhedronSort::getGeneratorSetting
 	return generatorSettings;
 }
 
+bool PolyhedronSort::isReady()
+{
+	return !polyhedronVector.isEmpty();
+}
+
 void PolyhedronSort::generatePolyhedrons()
 {
+	polyhedronVector.clear();
 	for (int i = 0; i < generatorSettings.polyhedronCount; i++)
 	{
-		QScopedPointer<Polyhedron> polyhedron(new Polyhedron(generatorSettings.max_vertices,
+		QSharedPointer<Polyhedron> polyhedron(new Polyhedron(generatorSettings.max_vertices,
 															 generatorSettings.max_faces,
 															 generatorSettings.min_vertices,
 															 generatorSettings.min_faces));
-		polyhedronVector.push_back(polyhedron);
+		polyhedronVector.append(polyhedron);
 	}
 }
 
