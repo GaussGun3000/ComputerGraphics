@@ -3,7 +3,7 @@
 #include "Polyhedron.h"
 
 
-QVector3D Polyhedron::border = QVector3D(6, 6, 6);
+const QVector3D Polyhedron::border = QVector3D(6, 6, 6);
 QRandomGenerator Polyhedron::randomGenerator(QDateTime::currentDateTime().toTime_t());
 
 Polyhedron::Polyhedron()

@@ -3,6 +3,7 @@
 #include <qvector.h>
 #include "Polyhedron.h"
 #include <qvector3d.h>
+#include <qcolor.h>
 
 class PolyhedronSort
 {
@@ -22,10 +23,11 @@ public:
 	};
 	struct Triangle
 	{
-		Triangle(QVector3D p1, QVector3D p2, QVector3D p3): p1(p1), p2(p2), p3(p3) {}
+		Triangle(QVector3D p1, QVector3D p2, QVector3D p3, QColor color): p1(p1), p2(p2), p3(p3), color(color){}
 		QVector3D p1;
 		QVector3D p2;
 		QVector3D p3;
+		QColor color;
 
 		bool operator<(const Triangle& rhs) {
 			float avgZ1 = (this->p1.z() + this->p2.z() + this->p3.z()) / 3.0f;
@@ -46,6 +48,8 @@ private:
 	//fields
 	QVector<QSharedPointer<Polyhedron>> polyhedronVector;
 	PolyhedronGeneratorSettings generatorSettings;
+	static const QVector<QColor> colorPool;
+
 	//methods
 	void generatePolyhedrons();
 

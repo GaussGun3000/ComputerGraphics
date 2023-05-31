@@ -16,9 +16,9 @@ RenderArea::RenderArea(QWidget *parent): polyhedronSort(new PolyhedronSort)
 
 bool RenderArea::updateScene()
 {
-    /*auto pgs = PolyhedronSort::PolyhedronGeneratorSettings();
+    auto pgs = PolyhedronSort::PolyhedronGeneratorSettings();
     polyhedronSort->setGeneratorSettings(pgs);
-    this->update();*/
+    this->update();
 	return false;
 }
 
@@ -29,17 +29,17 @@ void RenderArea::initializeGL()
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0f, (GLfloat)width() / (GLfloat)height(), 0.1f, 100.0f);
+    gluPerspective(45.0f, static_cast<GLfloat>(width()) / static_cast<GLfloat>(height()), 0.1f, 100.0f);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     glTranslatef(0.0f, 0.0f, -10.0f);
 
-    gluLookAt(1.0f, 1.0f, 1.0f, // Camera position (x, y, z)
+    gluLookAt(5.0f, 5.0f, 5.0f, // Camera position (x, y, z)
         0.0f, 0.0f, 0.0f,  // Look at point (x, y, z)
         0.0f, 0.0f, 1.0f); // Up vector (x, y, z)
     
-    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_DEPTH_TEST);
 }
 
 void RenderArea::paintGL()
@@ -92,6 +92,7 @@ void RenderArea::paintSortedFaces()
         glBegin(GL_TRIANGLES);
         for (const auto& triangle : triangles)
         {
+            glColor3f(triangle.color.redF(), triangle.color.greenF(), triangle.color.blueF());
             glVertex3f(triangle.p1.x(), triangle.p1.y(), triangle.p1.z());
             glVertex3f(triangle.p2.x(), triangle.p2.y(), triangle.p2.z());
             glVertex3f(triangle.p3.x(), triangle.p3.y(), triangle.p3.z());
