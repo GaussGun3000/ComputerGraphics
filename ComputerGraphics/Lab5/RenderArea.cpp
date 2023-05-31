@@ -99,15 +99,25 @@ void RenderArea::paintSortedFaces()
     if (polyhedronSort->isReady())
     {
         auto triangles = polyhedronSort->getFacesSortedByZ();
-        glBegin(GL_TRIANGLES);
+       
         for (const auto& triangle : triangles)
         {
+            glBegin(GL_TRIANGLES);
             glColor3f(triangle.color.redF(), triangle.color.greenF(), triangle.color.blueF());
             glVertex3f(triangle.p1.x(), triangle.p1.y(), triangle.p1.z());
             glVertex3f(triangle.p2.x(), triangle.p2.y(), triangle.p2.z());
             glVertex3f(triangle.p3.x(), triangle.p3.y(), triangle.p3.z());
+            glEnd();
+            glBegin(GL_LINES);
+            glColor3f(1.0f, 1.0f, 1.0f);
+            glVertex3f(triangle.p1.x(), triangle.p1.y(), triangle.p1.z());
+            glVertex3f(triangle.p2.x(), triangle.p2.y(), triangle.p2.z());
+            glVertex3f(triangle.p1.x(), triangle.p1.y(), triangle.p1.z());
+            glVertex3f(triangle.p3.x(), triangle.p3.y(), triangle.p3.z());
+            glVertex3f(triangle.p2.x(), triangle.p2.y(), triangle.p2.z());
+            glVertex3f(triangle.p3.x(), triangle.p3.y(), triangle.p3.z());
+            glEnd();
         }
-        glEnd();
     }
 
 }
