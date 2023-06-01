@@ -14,7 +14,7 @@
 ![image](https://github.com/GaussGun3000/ComputerGraphics/assets/75047500/ded583df-34c5-46ca-9175-1ec0b8930525)
 
 
-## Lab 3  (c OpenGL)
+## Lab 3  (OpenGL)
 Сформировать билинейную поверхность на основе произвольного задания ее четерех угловых точек. Обеспечить ее поворот относительно осей X и Y.
 
 ![image](https://github.com/GaussGun3000/ComputerGraphics/assets/75047500/3a4e2941-6f20-4113-a5c6-4b8e5e51fc57)
@@ -28,7 +28,7 @@
 ![image](https://github.com/GaussGun3000/ComputerGraphics/assets/75047500/ae4dcfe5-f87a-4349-933c-b062ec9dbe45)
 
 
-## Lab 5
+## Lab 5 (openGL)
 Обеспечить реализацию видимости совокупности произвольных
 многогранников на основе алгоритма сортировки граней по Z координате
 
